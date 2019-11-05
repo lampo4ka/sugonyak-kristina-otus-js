@@ -4,9 +4,10 @@ function getPath(element) {
 	parents.push(getElementAttributes(element));
 	let selectorElement = parents.join(' ');
 	if(isSelectorUnique(selectorElement)) {
-		console.log(`Уникальный селектор элемента ${element}: ${selectorElement}`)
+		console.log(`Уникальный селектор элемента: ${selectorElement}`)
+	} else {
+		console.log('Что-то пошло не так');
 	}
-	console.log('Что-то пошло не так');
 
 	function getParentsSelector(element) {
 		let parents = [];
@@ -29,6 +30,10 @@ function getPath(element) {
 				let attributeClassValue = element.getAttribute(attributeName);
 				let classValue = attributeClassValue.replace(/^\b|\s/g,".");
 				attributes.push(classValue);
+			} else if (attributeName) {
+				let attributeValue = element.getAttribute(attributeName);
+				let value = '[' + attributeName + '=' + "'" + attributeValue + "'" + ']';
+				attributes.push(value);
 			}
 		}
 
