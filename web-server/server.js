@@ -1,23 +1,47 @@
 // содежимое index.js
 const http = require('http');
-const port = 3000;
-const requestHandler = (request, response) => {
-	//response.end('Hello Node.js Server!')
-	response.setHeader("Content-Type", "text/html; charset=utf-8;");
+const fs = require('fs');
 
-	if(request.url === "/name" || request.url === "/"){
-		response.write("<h2>Home</h2>");
-	}
-	else if (request.url === "/age"){
-		response.write("<h2>Age</h2>");
+
+
+const port = 3000;
+
+const  setResponse = (err, content) => {};
+const requestHandler = (request, response) => {
+	//response.setHeader("Content-Type", "text/html; charset=utf-8;");
+
+	if(request.url === '/name'){
+		fs.readFile(`${ __dirname }/name.html`, function (err, content) {
+			if (!err) {
+				response.setHeader('Content-Type', 'text/html');
+				response.write(content);
+			} else {
+				response.statusCode = 500;
+				response.write('An error has ocurred');
+			}
+
+			response.end();
+		});
 	}
 	else if (request.url === "/address"){
-		response.write("<h2>Address</h2>");
+		fs.readFile(`${ __dirname }/responses/address.html`, function (err, content) {
+			if (!err) {
+				response.setHeader('Content-Type', 'text/html');
+				response.write(content);
+			}
+			response.end();
+		});
 	}
 	else {
-		response.write("<h2>404</h2>");
+		fs.readFile(`${ __dirname }/responses/nopage.html`, function (err, content) {
+			if (!err) {
+				response.setHeader('Content-Type', 'text/html');
+				response.write(content);
+			}
+			response.end();
+		});
 	}
-	response.end();
+	//response.end();//нужна функция, которая передает запрос и делает с ним что-то дальше
 	console.log(request.url, request.method);
 };
 
