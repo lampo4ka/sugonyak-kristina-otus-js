@@ -1,4 +1,3 @@
-// содежимое index.js
 const http = require('http');
 const fs = require('fs');
 
@@ -6,7 +5,7 @@ const fs = require('fs');
 
 const port = 3000;
 
-const  setResponse = (err, content) => {};
+//const  setResponse = (err, content) => {};
 const requestHandler = (request, response) => {
 	//response.setHeader("Content-Type", "text/html; charset=utf-8;");
 
