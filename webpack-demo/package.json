@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "start": "webpack --mode development --watch",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
@@ -16,11 +17,16 @@
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
     "@babel/preset-typescript": "^7.7.2",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
   }
 }
