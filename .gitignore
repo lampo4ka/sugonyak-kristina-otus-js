@@ -1,4 +1,6 @@
-/node_modules/
+/todo-simple/node_modules/
 getPath.js
 promiseReduce.js
 sum.js
+/todo-simple/dist/main.js
+
