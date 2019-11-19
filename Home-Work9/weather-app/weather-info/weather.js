@@ -1,4 +1,4 @@
-{
+const info = {
   "coord": {
     "lon": -122.08,
     "lat": 37.39
@@ -32,12 +32,14 @@
     "type": 1,
     "id": 5122,
     "message": 0.0139,
-    "country": "US",
+    "country": "Russia",
     "sunrise": 1560343627,
     "sunset": 1560396563
   },
   "timezone": -25200,
   "id": 420006353,
-  "name": "Mountain View",
+  "name": "Moscow",
   "cod": 200
-}
+};
+
+export default info;
