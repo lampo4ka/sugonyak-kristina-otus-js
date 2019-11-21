@@ -4,15 +4,6 @@ import Form from "./Form"
 import Info from "./Info"
 import Weather from "./Weather"
 
-//import '../styles/App.css';
-
-// const getDataWeather = (event) => {
-// 	event.preventDefault();
-// 	// const city = await event.target.element.name.value;
-// 	console.log(info);
-// // получение содержимого файла
-// };
-
 class App extends Component {
 
 	state = {
