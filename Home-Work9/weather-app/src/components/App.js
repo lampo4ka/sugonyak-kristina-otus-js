@@ -25,15 +25,16 @@ class App extends Component {
 
 	getDataWeather = (event) => {
 		event.preventDefault();
-		//const city = event.target.element.name.value;
-		
-		this.setState({
-			temp:info.main.temp,
-			pressure:info.main.pressure,
-			wind:info.wind.speed,
-			name:info.name,
-			country:info.sys.country
-		})
+		const city = event.target.elements.city.value;
+		if(city) {
+			this.setState({
+				temp:info.main.temp,
+				pressure:info.main.pressure,
+				wind:info.wind.speed,
+				name:info.name,
+				country:info.sys.country
+			})
+		}
 	};
 
 	render() {
