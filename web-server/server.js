@@ -23,7 +23,7 @@ const requestHandler = (request, response) => {
 		});
 	}
 	else if (request.url === "/address"){
-		fs.readFile(`${ __dirname }/responses/address.html`, function (err, content) {
+		fs.readFile(`${ __dirname }/address.html`, function (err, content) {
 			if (!err) {
 				response.setHeader('Content-Type', 'text/html');
 				response.write(content);
@@ -32,7 +32,7 @@ const requestHandler = (request, response) => {
 		});
 	}
 	else {
-		fs.readFile(`${ __dirname }/responses/nopage.html`, function (err, content) {
+		fs.readFile(`${ __dirname }/nopage.html`, function (err, content) {
 			if (!err) {
 				response.setHeader('Content-Type', 'text/html');
 				response.write(content);
