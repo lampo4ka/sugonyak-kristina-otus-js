@@ -39,20 +39,24 @@ const optionsList = [
 
 
 const requests = () => {
-	for (let options in optionsList) {
-		const req = https.request(optionsList[options], (res) => {
-			console.log('statusCode:', res.statusCode);
-			console.log('headers:', res.headers);
-			res.on('data', (chunk) => {
-				console.log(`BODY: ${chunk}`);
+	let count = 0;
+	while (count < 10) {
+		for (let options in optionsList) {
+			const req = https.request(optionsList[options], (res) => {
+				console.log('statusCode:', res.statusCode);
+				console.log('headers:', res.headers);
+				res.on('data', (chunk) => {
+					console.log(`BODY: ${chunk}`);
+				});
 			});
-		});
 
-		req.on('error', (e) => {
-			console.error(e);
-		});
+			req.on('error', (e) => {
+				console.error(e);
+			});
 
-		req.end();
+			req.end();
+		}
+		count ++;
 	}
 };
 
