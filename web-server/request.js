@@ -37,11 +37,17 @@ const optionsList = [
 // 	})
 // ));
 
+function requestAsync (url) {
+	//...
+	return new Promise((resolve, rej) => resolve(data));
+}
 
-const requests = () => {
+
+const async requests = () => {
 	let count = 0;
 	while (count < 10) {
 		for (let options in optionsList) {
+			debugger
 			const req = https.request(optionsList[options], (res) => {
 				console.log('statusCode:', res.statusCode);
 				console.log('headers:', res.headers);
@@ -49,6 +55,11 @@ const requests = () => {
 					console.log(`BODY: ${chunk}`);
 				});
 			});
+
+			const data1 = await requestAsync(optionsList[options]);
+
+			console.log(data1);
+
 
 			req.on('error', (e) => {
 				console.error(e);
