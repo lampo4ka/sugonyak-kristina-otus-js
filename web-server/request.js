@@ -30,45 +30,41 @@ const optionsList = [
 ];
 
 
-// optionsList.forEach(options => (
-// 	https.request(options, res => {
-// 		console.log('statusCode:', res.statusCode);
-// 		console.log('headers:', res.headers);
-// 	})
-// ));
+function requestAsync (options) {
+	const req = https.request(options, (res) => {
+		console.log('statusCode:', res.statusCode);
+		res.on('data', (chunk) => {
+			console.log(`BODY: ${chunk}`);
+		});
 
-function requestAsync (url) {
-	//...
-	return new Promise((resolve, rej) => resolve(data));
+		req.on('error', (e) => {
+			console.error(e);
+		});
+
+		req.end();
+	});
+	return new Promise((resolve, reject) => resolve(req.end()));
 }
 
 
-const async requests = () => {
-	let count = 0;
-	while (count < 10) {
-		for (let options in optionsList) {
-			debugger
-			const req = https.request(optionsList[options], (res) => {
-				console.log('statusCode:', res.statusCode);
-				console.log('headers:', res.headers);
-				res.on('data', (chunk) => {
-					console.log(`BODY: ${chunk}`);
-				});
-			});
+async function getResponse() {
+	optionsList.forEach(await requestAsync);
+	// const data1 = await requestAsync(options);
+	// const data2 = await requestAsync(options);
 
-			const data1 = await requestAsync(optionsList[options]);
+	//console.log(data1);
 
-			console.log(data1);
+}
+// let count = 0;
+// while (count < 10) {
+// 	for (let options in optionsList) {
+// const req = https.request(optionsList[options], (res) => {
+// 	console.log('statusCode:', res.statusCode);
+// 	console.log('headers:', res.headers);
+// 	res.on('data', (chunk) => {
+// 		console.log(`BODY: ${chunk}`);
+// 	});
+// });
 
 
-			req.on('error', (e) => {
-				console.error(e);
-			});
-
-			req.end();
-		}
-		count ++;
-	}
-};
-
-requests();
+getResponse();
