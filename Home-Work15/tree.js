@@ -99,17 +99,18 @@ const getFullDirContent = (dirPath, array) => {
 const getFullDirContentArray = () => {
 	const dirArray = [];
 	const fileArray = [];
+	const arr = [];
 
-	const arr = getFullDirContent('./TestDirectory').map(el => {
+	getFullDirContent('./TestDirectory').map(el => {
 		if (isFile(el)) {
 			fileArray.push(el);
-			//return dirArray
 		} else {
 			dirArray.push(el);
-			//return fileArray
 		}
 	});
-	return fileArray;
+	arr.push(fileArray);
+	arr.push(dirArray);
+	return arr;
 };
 
 //
@@ -128,8 +129,8 @@ const getFullDirContentArray = () => {
 
 const printDirFullContent = () => {
 	const data = {
-		files: filesNameArray(),
-		dir: dirNameArray()
+		files: getFullDirContentArray()[0],
+		dir: getFullDirContentArray()[1]
 	};
 	return JSON.stringify(data);
 
@@ -139,8 +140,8 @@ const printDirFullContent = () => {
 // console.log(filesNameArray());
 // console.log (dirNameArray());
 
-// console.log(printDirFullContent());
-console.log(getFullDirContent('./TestDirectory'));
+console.log(printDirFullContent());
+// console.log(getFullDirContent('./TestDirectory'));
 //
 // console.log(getFullDirContentArray());
 
