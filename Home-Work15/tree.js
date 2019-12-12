@@ -41,9 +41,7 @@ const path = require('path');
 const folderPath = './TestDirectory';
 // console.log(fs.readdirSync(folderPath));
 
-const fullPath = fs.readdirSync(folderPath).map(fileName => {
-	return path.join(folderPath, fileName)
-});
+
 // console.log(fullPath);
 
 //определяет, является ли объект файлом
@@ -78,31 +76,40 @@ const dirNameArray = () => {
 
  */
 
+const getFullDirContent = (dirPath, array) => {
+	array = array || [];
+	const dirContent = fs.readdirSync(dirPath);
+	if (dirContent.length !== 0) {
+		dirContent.map(dirElem => {
+			debugger;
+			const dirElemPath = path.join(dirPath, dirElem);
 
-const getFullDirContent = (folderPath) => {
-	const dirArray = [];
-	const fileArray = [];
-	//const arr = [];
-	const fullPath = fs.readdirSync(folderPath).map(fileName => {
-		return path.join(folderPath, fileName)
-	});
-
-	if (fullPath.length !== 0) {
-		fullPath.forEach((fullPathItem, index) => {
-			if(isFile(fullPathItem)) {
-				fileArray.push(fullPathItem);
-				//console.log(fileArray);
+			if(isFile(dirElemPath)) {
+				array.push(dirElemPath);
 			}
 			else {
-				dirArray.push(fullPathItem);
-				getFullDirContent(fullPathItem);
+				array.push(dirElemPath);
+				getFullDirContent(dirElemPath, array);
 			}
 		});
-		// console.log(dirArray);
-		// console.log(fileArray);
-		//return dirArray;
-		return fileArray;
+		return array;
 	}
+};
+
+const getFullDirContentArray = () => {
+	const dirArray = [];
+	const fileArray = [];
+
+	const arr = getFullDirContent('./TestDirectory').map(el => {
+		if (isFile(el)) {
+			fileArray.push(el);
+			//return dirArray
+		} else {
+			dirArray.push(el);
+			//return fileArray
+		}
+	});
+	return fileArray;
 };
 
 //
@@ -134,4 +141,6 @@ const printDirFullContent = () => {
 
 // console.log(printDirFullContent());
 console.log(getFullDirContent('./TestDirectory'));
+//
+// console.log(getFullDirContentArray());
 
