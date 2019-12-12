@@ -39,11 +39,12 @@ const path = require('path');
 // console.log(path.extname(notes));
 
 const folderPath = './TestDirectory';
-//console.log(fs.readdirSync(folderPath));
+// console.log(fs.readdirSync(folderPath));
 
-// const fullPath = fs.readdirSync(folderPath).map(fileName => {
-// 	return path.join(folderPath, fileName)
-// });
+const fullPath = fs.readdirSync(folderPath).map(fileName => {
+	return path.join(folderPath, fileName)
+});
+// console.log(fullPath);
 
 //определяет, является ли объект файлом
 const isFile = fileName => {
@@ -69,18 +70,56 @@ const dirNameArray = () => {
 	return fullDirPath;
 };
 
+/*
+1. Пока каждый элемент массива (содержание folderPath) не равен файлу
+	//делать проверку на то, является ли он файлом
+	//если файл, то вывести в массив
+	//вывести в массив то, что проверялось на файл
 
-// export const setResponse = priceList => {
-// 	const data = {
-// 		meta: { status: 'success' },
-// 		response: {
-// 			all: setBarPrice(priceList),
-// 		},
-// 	};
-// 	return JSON.stringify(data);
+ */
+
+
+const getFullDirContent = (folderPath) => {
+	const dirArray = [];
+	const fileArray = [];
+	//const arr = [];
+	const fullPath = fs.readdirSync(folderPath).map(fileName => {
+		return path.join(folderPath, fileName)
+	});
+
+	if (fullPath.length !== 0) {
+		fullPath.forEach((fullPathItem, index) => {
+			if(isFile(fullPathItem)) {
+				fileArray.push(fullPathItem);
+				//console.log(fileArray);
+			}
+			else {
+				dirArray.push(fullPathItem);
+				getFullDirContent(fullPathItem);
+			}
+		});
+		// console.log(dirArray);
+		// console.log(fileArray);
+		//return dirArray;
+		return fileArray;
+	}
+};
+
+//
+// const dirNameArray = () => {
+// 	const fullPath = fs.readdirSync(folderPath).map(fileName => {
+// 		return path.join(folderPath, fileName)});
+// 	const fullDirPath = fullPath.map((el) => {
+// 		if(!isFile(el)) {
+// 			fs.readdirSync(el).map(fileName => {
+// 		return path.join(el, fileName)});
+// 		}
+// 	}).filter(Boolean);
+// 	// console.log(fullDirPath);
+// 	return fullDirPath;
 // };
 
-const getDirFullContent = () => {
+const printDirFullContent = () => {
 	const data = {
 		files: filesNameArray(),
 		dir: dirNameArray()
@@ -93,5 +132,6 @@ const getDirFullContent = () => {
 // console.log(filesNameArray());
 // console.log (dirNameArray());
 
-console.log(getDirFullContent());
+// console.log(printDirFullContent());
+console.log(getFullDirContent('./TestDirectory'));
 
