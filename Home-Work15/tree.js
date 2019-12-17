@@ -45,28 +45,14 @@ const folderPath = './TestDirectory';
 // console.log(fullPath);
 
 //определяет, является ли объект файлом
-const isFile = fileName => {
-	return fs.lstatSync(fileName).isFile()
+const isFile = (fileName) => {
+	return new Promise((resolve, reject) => {
+		fs.lstat(fileName, (err, stat) => {
+			resolve (stat.isFile())
+		});
+	});
 };
 
-const filesNameArray = () => {
-	const fullPath = fs.readdirSync(folderPath).map(fileName => {
-		return path.join(folderPath, fileName)}).filter(isFile);
-	//console.log(fullPath);
-	return fullPath;
-};
-
-const dirNameArray = () => {
-	const fullPath = fs.readdirSync(folderPath).map(fileName => {
-		return path.join(folderPath, fileName)});
-	const fullDirPath = fullPath.map((el) => {
-		if(!isFile(el)) {
-			return el;
-		}
-	}).filter(Boolean);
-	// console.log(fullDirPath);
-	return fullDirPath;
-};
 
 /*
 1. Пока каждый элемент массива (содержание folderPath) не равен файлу
@@ -76,32 +62,33 @@ const dirNameArray = () => {
 
  */
 
-const getFullDirContent = (dirPath, array) => {
+const getFullDirContent = async(dirPath, array) => {
 	array = array || [];
-	const dirContent = fs.readdirSync(dirPath);
-	if (dirContent.length !== 0) {
-		dirContent.map(dirElem => {
-			debugger;
-			const dirElemPath = path.join(dirPath, dirElem);
+	await fs.readdir(dirPath, (err, dirContent ) => {
+		if (dirContent.length !== 0) {
+			dirContent.map( async dirElem => {
+				debugger;
+				const dirElemPath = path.join(dirPath, dirElem);
 
-			if(isFile(dirElemPath)) {
-				array.push(dirElemPath);
-			}
-			else {
-				array.push(dirElemPath);
-				getFullDirContent(dirElemPath, array);
-			}
-		});
-		return array;
-	}
+				if( await isFile(dirElemPath)) {
+					array.push(dirElemPath);
+				}
+				else {
+					array.push(dirElemPath);
+					getFullDirContent(dirElemPath, array);
+				}
+			});
+			return array;
+		}
+	});
 };
 
-const getFullDirContentArray = () => {
+const getFullDirContentArray = async () => {
 	const dirArray = [];
 	const fileArray = [];
 	const arr = [];
 
-	getFullDirContent('./TestDirectory').map(el => {
+	await getFullDirContent('./TestDirectory').map(el => {
 		if (isFile(el)) {
 			fileArray.push(el);
 		} else {
@@ -113,22 +100,9 @@ const getFullDirContentArray = () => {
 	return arr;
 };
 
-//
-// const dirNameArray = () => {
-// 	const fullPath = fs.readdirSync(folderPath).map(fileName => {
-// 		return path.join(folderPath, fileName)});
-// 	const fullDirPath = fullPath.map((el) => {
-// 		if(!isFile(el)) {
-// 			fs.readdirSync(el).map(fileName => {
-// 		return path.join(el, fileName)});
-// 		}
-// 	}).filter(Boolean);
-// 	// console.log(fullDirPath);
-// 	return fullDirPath;
-// };
 
-const printDirFullContent = () => {
-	const data = {
+const printDirFullContent = async () => {
+	const data = await {
 		files: getFullDirContentArray()[0],
 		dir: getFullDirContentArray()[1]
 	};
@@ -140,8 +114,8 @@ const printDirFullContent = () => {
 // console.log(filesNameArray());
 // console.log (dirNameArray());
 
-console.log(printDirFullContent());
-// console.log(getFullDirContent('./TestDirectory'));
+// printDirFullContent().then(console.log);
+console.log(getFullDirContent('./TestDirectory'));
 //
 // console.log(getFullDirContentArray());
 
