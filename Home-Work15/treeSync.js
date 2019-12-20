@@ -16,13 +16,24 @@
 const fs = require('fs');
 const path = require('path');
 
-const folderPath = './TestDirectory';
+//аргумент, переданный из консоли
+const folderPath = process.argv[2];
 
 //определяет, является ли объект файлом
 const isFile = fileName => {
 	return fs.lstatSync(fileName).isFile()
 };
 
+/* собирает содержимое folderPath в массив
+ * на выходе будет
+ * [ 'TestDirectory/dir1',
+  'TestDirectory/dir1/dir4',
+  'TestDirectory/dir1/hello.html',
+  'TestDirectory/dir2',
+  'TestDirectory/dir2/1.txt',
+  'TestDirectory/dir3',
+  'TestDirectory/weather.json' ]
+ */
 const getFullDirContent = (dirPath, array) => {
 	array = array || [];
 	const dirContent = fs.readdirSync(dirPath);
@@ -43,12 +54,13 @@ const getFullDirContent = (dirPath, array) => {
 	}
 };
 
+// разбивает результат getFullDirContent() на массив с директориями и массив с файлами
 const getFullDirContentArray = () => {
 	const dirArray = [];
 	const fileArray = [];
 	const arr = [];
 
-	getFullDirContent('./TestDirectory').map(el => {
+	getFullDirContent(folderPath).map(el => {
 		if (isFile(el)) {
 			fileArray.push(el);
 		} else {
@@ -60,6 +72,7 @@ const getFullDirContentArray = () => {
 	return arr;
 };
 
+// формирует json объект с директориями и файлами из getFullDirContentArray()
 const printDirFullContent = () => {
 	const data = {
 		files: getFullDirContentArray()[0],
