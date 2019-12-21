@@ -4,6 +4,7 @@ import Form from "./Form"
 import Info from "./Info"
 import Weather from "./Weather"
 
+const API_KEY = '';
 class App extends Component {
 
 	state = {
@@ -14,18 +15,34 @@ class App extends Component {
 		country:undefined,
 	};
 
-	getDataWeather = (event) => {
+	// getDataWeather = (event) => {
+	// 	event.preventDefault();
+	// 	const city = event.target.elements.city.value;
+	// 	if(city) {
+	// 		this.setState({
+	// 			temp:info.main.temp,
+	// 			pressure:info.main.pressure,
+	// 			wind:info.wind.speed,
+	// 			name:info.name,
+	// 			country:info.sys.country
+	// 		})
+	// 	}
+	// };
+
+	getDataWeather = async (event) => {
 		event.preventDefault();
 		const city = event.target.elements.city.value;
+		const api_url = await fetch(`https://openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+		const data = await api_url.json();
 		if(city) {
 			this.setState({
-				temp:info.main.temp,
-				pressure:info.main.pressure,
-				wind:info.wind.speed,
-				name:info.name,
-				country:info.sys.country
+				temp:data.main.temp,
+				pressure:data.main.pressure,
+				wind:data.wind.speed,
+				name:data.name,
+				country:data.sys.country
 			})
-		}
+				}
 	};
 
 	render() {
