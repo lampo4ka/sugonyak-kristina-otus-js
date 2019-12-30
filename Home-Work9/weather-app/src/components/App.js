@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import info from '../../weather-info/weather';
 import Form from "./Form"
 import Info from "./Info"
 import Weather from "./Weather"
 
-const API_KEY = '';
+const API_KEY = "5e11e605b8aa92c4b37b8f79fb3c174c";
 class App extends Component {
 
 	state = {
@@ -15,25 +14,14 @@ class App extends Component {
 		country:undefined,
 	};
 
-	// getDataWeather = (event) => {
-	// 	event.preventDefault();
-	// 	const city = event.target.elements.city.value;
-	// 	if(city) {
-	// 		this.setState({
-	// 			temp:info.main.temp,
-	// 			pressure:info.main.pressure,
-	// 			wind:info.wind.speed,
-	// 			name:info.name,
-	// 			country:info.sys.country
-	// 		})
-	// 	}
-	// };
-
-	getDataWeather = async (event) => {
-		event.preventDefault();
+	getDataWeather = async (e) => {
+		e.preventDefault();
 		const city = event.target.elements.city.value;
-		const api_url = await fetch(`https://openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+		const api_url = await fetch(`https://samples.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
+		debugger;
+		// https://samples.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}
 		const data = await api_url.json();
+		console.log(data);
 		if(city) {
 			this.setState({
 				temp:data.main.temp,
