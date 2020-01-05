@@ -4,9 +4,15 @@ type User {
   email: String!
   age: Int
 },
+type UserBills {
+  id: ID!
+  mainFlag: Boolean!
+  balance: Int!
+},
 type Query {
   users: [User!]!
   user(id: ID!): User!
+  userBills: [UserBills!]!
 },
 type Mutation {
   createUser(id: ID!, name: String!, email: String!, age: Int): User!
