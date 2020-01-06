@@ -9,10 +9,23 @@ type UserBills {
   mainFlag: Boolean!
   balance: Int!
 },
+type Catalog {
+  id: ID!
+  type: [ClothesType]!
+},
+
+type ClothesType {
+  id: ID!
+  name: String!
+  qty: Int
+}
+
 type Query {
   users: [User!]!
   user(id: ID!): User!
   userBills: [UserBills!]!
+  catalog: [Catalog!]!
+
 },
 type Mutation {
   createUser(id: ID!, name: String!, email: String!, age: Int): User!

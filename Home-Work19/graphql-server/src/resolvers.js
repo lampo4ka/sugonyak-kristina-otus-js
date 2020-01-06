@@ -1,6 +1,4 @@
-import { users, userBills } from "./db";
-import { GraphQLScalarType } from 'graphql';
-import { Kind } from 'graphql/language';
+import { users, userBills, catalog } from "./db";
 
 const resolvers = {
 	Query: {
@@ -12,6 +10,9 @@ const resolvers = {
 		},
 		userBills: (parent, args, context, info) => {
 			return userBills;
+		},
+		catalog: (parent, args, context, info) => {
+			return catalog;
 		}
 	},
 
