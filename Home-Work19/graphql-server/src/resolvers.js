@@ -41,6 +41,13 @@ const resolvers = {
 			const deletedUsers = users.splice(userIndex, 1);
 
 			return deletedUsers[0];
+		},
+		addNewItem: (parent, { id, name, qty }, context, info) => {
+			const newItem = { id, name, qty };
+
+			catalog.push(newItem);
+
+			return newItem;
 		}
 	}
 };

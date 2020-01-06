@@ -11,24 +11,24 @@ type UserBills {
 },
 type Catalog {
   id: ID!
-  type: [ClothesType]!
+  type: [ClothesType]
 },
 
 type ClothesType {
   id: ID!
   name: String!
-  qty: Int
-}
+  qty: Int!
+},
 
 type Query {
   users: [User!]!
   user(id: ID!): User!
   userBills: [UserBills!]!
   catalog: [Catalog!]!
-
 },
 type Mutation {
   createUser(id: ID!, name: String!, email: String!, age: Int): User!
   updateUser(id: ID!, name: String, email: String, age: Int): User!
   deleteUser(id: ID!): User!
+  addNewItem(id: ID!, name:String!, qty: Int!): ClothesType!
 }
