@@ -24,15 +24,6 @@ const resolvers = {
 
 			return newUser;
 		},
-		updateUser: (parent, { id, name, email, age }, context, info) => {
-			let newUser = users.find(user => user.id === id);
-
-			newUser.name = name;
-			newUser.email = email;
-			newUser.age = age;
-
-			return newUser;
-		},
 		deleteUser: (parent, { id }, context, info) => {
 			const userIndex = users.findIndex(user => user.id === id);
 
