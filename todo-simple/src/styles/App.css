@@ -1,0 +1,27 @@
+h1 {
+    color: #27aedb;
+    text-align: center;
+}
+
+.toDo {
+    width: 420px;
+    margin-left:auto;
+    margin-right:auto
+}
+
+input {
+    width: 250px;
+    height: 50px;
+    border: 2px solid black;
+    margin-right: 5px;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    border: 2px solid black;
+    margin-left: 5px;
+    background-color: lightslategrey;
+    font-size: 16px;
+    cursor: pointer;
+}
