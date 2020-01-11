@@ -1,13 +1,8 @@
 const http = require('http');
 const fs = require('fs');
-
-
-
 const port = 3000;
 
-//const  setResponse = (err, content) => {};
 const requestHandler = (request, response) => {
-	//response.setHeader("Content-Type", "text/html; charset=utf-8;");
 
 	if(request.url === '/name'){
 		fs.readFile(`${ __dirname }/name.html`, function (err, content) {
@@ -40,7 +35,6 @@ const requestHandler = (request, response) => {
 			response.end();
 		});
 	}
-	//response.end();//нужна функция, которая передает запрос и делает с ним что-то дальше
 	console.log(request.url, request.method);
 };
 
