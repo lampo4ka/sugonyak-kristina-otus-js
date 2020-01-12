@@ -24,16 +24,19 @@ const isFile = fileName => {
 	return fs.lstatSync(fileName).isFile()
 };
 
-/* собирает содержимое folderPath в массив
- * на выходе будет
- * [ 'TestDirectory/dir1',
-  'TestDirectory/dir1/dir4',
-  'TestDirectory/dir1/hello.html',
-  'TestDirectory/dir2',
-  'TestDirectory/dir2/1.txt',
-  'TestDirectory/dir3',
-  'TestDirectory/weather.json' ]
- */
+const isSymbolicLink = fileName => {
+	return fs.lstatSync(fileName).isSymbolicLink()
+};
+
+// const isFile1 = () => {
+// // 	return fs.lstatSync(folderPath).isSymbolicLink()
+// // };
+// //
+// //
+// //
+// // console.log(isFile1());
+
+// собирает содержимое folderPath в массив
 const getFullDirContent = (dirPath, array) => {
 	array = array || [];
 	const dirContent = fs.readdirSync(dirPath);
@@ -42,7 +45,7 @@ const getFullDirContent = (dirPath, array) => {
 			debugger;
 			const dirElemPath = path.join(dirPath, dirElem);
 
-			if(isFile(dirElemPath)) {
+			if(isFile(dirElemPath) || isSymbolicLink(dirElemPath)) {
 				array.push(dirElemPath);
 			}
 			else {
