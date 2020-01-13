@@ -28,14 +28,6 @@ const isSymbolicLink = fileName => {
 	return fs.lstatSync(fileName).isSymbolicLink()
 };
 
-// const isFile1 = () => {
-// // 	return fs.lstatSync(folderPath).isSymbolicLink()
-// // };
-// //
-// //
-// //
-// // console.log(isFile1());
-
 // собирает содержимое folderPath в массив
 const getFullDirContent = (dirPath, array) => {
 	array = array || [];
