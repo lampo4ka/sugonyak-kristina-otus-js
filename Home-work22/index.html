@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{ message }}</h1>
+    <p>{{ now }}</p>
+</div>
+
+
+</body>
+
+<!-- Версия для разработки включает в себя возможность вывода в консоль полезных уведомлений -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+	const app = new Vue({
+		el: '#app',
+		data: {
+			message: 'Hello Vue!',
+			now: new Date()
+		},
+		methods: {
+			updateDate() {
+				this.now = new Date();
+
+			},
+			mounted() {
+				setInterval(() => {
+					this.updateDate();
+				}, 1000);
+			}
+		}
+
+			})
+</script>
+
+</html>
