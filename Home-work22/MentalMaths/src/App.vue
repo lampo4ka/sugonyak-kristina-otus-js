@@ -10,31 +10,31 @@
       <md-card-content class="content">
         <div class="md-title subtitle">Настройки</div>
         <div>
-          <datalist id="tickmarkstime" class="datalist">
-            <option value="0" label="1"/>
-            <option value="100" label="15" class="labelright"/>
-          </datalist>
+          <div class="slider_value">
+            <div>1</div>
+            <div class="max_slider_value">15</div>
+          </div>
           <div class="slidecontainer">
-            <input type="range" min="1" max="15" value="5" list="tickmarkstime">
+            <input type="range" min="1" max="15" value="5">
           </div>
         </div>
 
         <div class="md-title description">Длительность N минут</div>
-        <datalist id="tickmarkslevel" class="datalist">
-          <option value="0" label="1"/>
-          <option value="100" label="10" class="labelright"/>
-        </datalist>
+        <div class="slider_value">
+          <div>1</div>
+          <div class="max_slider_value">10</div>
+        </div>
         <div class="slidecontainer">
           <input type="range" min="1" max="10" value="5" list="tickmarkslevel">
         </div>
         <div class="md-title description">Сложность N</div>
 
-        <div>
-          <md-checkbox v-model="string" value="my-checkbox">Суммирование</md-checkbox>
-          <md-checkbox v-model="string" value="my-checkbox" class="checkbox">Разность</md-checkbox>
-          <md-checkbox v-model="string" value="my-checkbox">Умножение</md-checkbox>
-          <md-checkbox v-model="string" value="my-checkbox">Деление</md-checkbox>
-          <md-checkbox v-model="string" value="my-checkbox">Возведение в степень</md-checkbox>
+        <div class="checkbox">
+          <md-checkbox v-model="array" value="1">Суммирование</md-checkbox>
+          <md-checkbox v-model="array" value="2">Разность</md-checkbox>
+          <md-checkbox v-model="array" value="3">Умножение</md-checkbox>
+          <md-checkbox v-model="array" value="4">Деление</md-checkbox>
+          <md-checkbox v-model="array" value="5">Возведение в степень</md-checkbox>
         </div>
 
         <div class="button">
@@ -76,7 +76,7 @@
 export default {
   name: 'RegularCheckboxes',
   data: () => ({
-    string: null,
+    array: [],
     h: new Date().getHours(),
     m: new Date().getMinutes()
   })
@@ -114,22 +114,32 @@ export default {
   }
 
   .md-card .description {
-    font-size: 14px;
+    font-size: 12px;
+  }
+  .slider_value {
+    height: 16px;
+  }
+  .slider_value div{
+    display: inline-block;
+    font-size: 12px;
   }
   .slidecontainer {
     width: 100%;
   }
-  .datalist {
-    display: inline;
+  .max_slider_value {
+    margin-left: 107px;
   }
   .labelright {
     position: absolute;
   }
+  .checkbox {
+    margin-top: 25px;
+  }
   .md-checkbox {
     display: flex;
   }
-  .checkbox {
-    padding-top: -5px;
+  .md-checkbox {
+    margin: 12px 12px 12px 0;
   }
   .button {
     position: relative;
