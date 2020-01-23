@@ -15,17 +15,17 @@
             <div class="max_slider_value">15</div>
           </div>
           <div class="slidecontainer">
-            <input type="range" min="1" max="15" value="5">
+            <input type="range" min="1" max="15" v-bind:value="number">
           </div>
         </div>
 
-        <div class="md-title description">Длительность N минут</div>
+        <div class="md-title description">Длительность {{number}} минут</div>
         <div class="slider_value">
           <div>1</div>
           <div class="max_slider_value">10</div>
         </div>
         <div class="slidecontainer">
-          <input type="range" min="1" max="10" value="5" list="tickmarkslevel">
+          <input type="range" min="1" max="10" value="5">
         </div>
         <div class="md-title description">Сложность N</div>
 
@@ -38,7 +38,7 @@
         </div>
 
         <div class="button">
-          <md-button class="md-raised md-primary play_button" v-on:click="Play()">Play</md-button>
+          <md-button class="md-raised md-primary" id="play_button" v-on:click="Play()">Play</md-button>
         </div>
       </md-card-content>
     </md-card>
@@ -47,7 +47,7 @@
       <md-card-content class="content">
         <div class="button">
           <div class="timer">{{h}}:{{m}}</div>
-          <md-button class="md-raised md-primary" v-on:click="Cancel()">Отмена</md-button>
+          <md-button class="md-raised md-primary" id="cancel_button" v-on:click="Cancel()">Отмена</md-button>
         </div>
         <div class="enter"></div>
         <div class="container">
@@ -77,6 +77,7 @@ export default {
   name: 'RegularCheckboxes',
   data: () => ({
     array: [],
+    number: 5,
     h: new Date().getHours(),
     m: new Date().getMinutes()
   })
@@ -144,9 +145,13 @@ export default {
   .button {
     position: relative;
   }
-  .play_button {
+  #play_button {
     position: absolute;
     right: 10px;
+    background: #aaaaaa;
+  }
+  #cancel_button {
+    background: #aaaaaa;
   }
   .content .timer {
     position: absolute;
@@ -169,7 +174,7 @@ export default {
 
   .container {
     margin-left: 45px;
-    margin-top: 100px;
+    margin-top: 90px;
     display: grid;
     align-items: center;
     justify-items: center;
