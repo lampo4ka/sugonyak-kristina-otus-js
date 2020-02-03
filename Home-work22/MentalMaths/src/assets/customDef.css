@@ -1,0 +1,9 @@
+.play_field_button {
+  min-width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #9b859d;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
