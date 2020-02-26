@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-	entry: ['babel-polyfill', './src/index.js'],
+	entry: ['babel-polyfill', './index.js'],
 	output: {
 		filename: 'main.js',
 		path: path.resolve(__dirname, 'dist'),
@@ -25,7 +25,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: "./src/index.html"
+			template: "./index.html"
 		})
 	]
 };
