@@ -8,16 +8,11 @@ import * as stateSelectors from "../store/reducer";
 
 class App extends Component {
 
-
-	componentDidMount() {
-		this.props.dispatch(weatherActions.getDataWeather());
-	}
-
 	render() {
 		return (
 			<div>
 				<Weather/>
-				<Form method={this.method}/>
+				<Form method={this.props.method}/>
 				<Info
 					temp={this.props.weatherState.temp}
 					pressure={this.props.weatherState.pressure}
@@ -29,7 +24,6 @@ class App extends Component {
 	);
 	}
 
-
 }
 
 function mapStateToProps(state) {
@@ -38,9 +32,11 @@ function mapStateToProps(state) {
 	}
 }
 
-function mapDispatchToProps(dispacth) {
+function mapDispatchToProps(dispatch) {
 	return {
-		method: () => dispatch(weatherActions.getDataWeather())
+		method: function (city) {
+			dispatch(weatherActions.getDataWeather(city))
+		},
 	};
 }
 

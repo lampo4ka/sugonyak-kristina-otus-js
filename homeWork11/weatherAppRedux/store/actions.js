@@ -1,15 +1,15 @@
-import _ from 'lodash';
 import * as types from './actionTypes';
 
-export function getDataWeather() {
-	return async(dispatch, e) => {
+export function getDataWeather(city) {
+	return async(dispatch, getState) => {
 		try {
-			e.preventDefault();
-			const city = event.target.elements.city.value;
+			const API_KEY = "5e11e605b8aa92c4b37b8f79fb3c174c";
 			const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-			const api_url = await fetch(proxyUrl + `https://samples.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
-			const data = await api_url.json();
-			dispatch({ type: types.WEATHER, data });
+			if (city) {
+				const api_url = await fetch(proxyUrl + `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
+				const data = await api_url.json();
+				dispatch({ type: types.WEATHER, data });
+			}
 		} catch (error) {
 			console.error(error);
 		}
