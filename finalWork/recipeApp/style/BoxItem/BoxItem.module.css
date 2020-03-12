@@ -1,0 +1,28 @@
+.box {
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    background: #000;
+}
+
+.header {}
+
+.title {}
+
+.body {
+    display: grid;
+    grid-template-areas:
+    'img' 'steps'
+    'components' 'steps';
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+}
+
+.components {}
+
+.steps {}
