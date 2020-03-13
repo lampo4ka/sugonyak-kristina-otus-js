@@ -5,6 +5,7 @@ import Steps from "./Steps";
 
 class Body extends Component {
     render() {
+        console.log(this.props);
         return (
             <div className={Box.body}>
                 <div>
@@ -13,12 +14,8 @@ class Body extends Component {
                          className={Box.img}
                     />
                 </div>
-                <Steps
-                    steps = {this.props.data.steps}
-                />
-                <Components
-                    components = {this.props.data.components}
-                />
+                <Steps />
+                <Components data = {this.props.data} />
 
             </div>
         );

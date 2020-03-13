@@ -52,9 +52,7 @@ class BoxItem extends Component {
         return (
             <div className={Box.boxItem}>
                 <Body
-                    components = {this.props.data.components}
-                    steps = {this.props.data.steps}
-                    img = {this.props.data.img}
+                    data = {this.props.data}
                 />
             </div>
         );

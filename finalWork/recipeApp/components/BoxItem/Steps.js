@@ -4,7 +4,7 @@ class Steps extends Component {
 
     render() {
         return (
-            <div className={Box.components}>
+            <div className={Box.steps}>
                 <h2>Способ приготовления</h2>
             </div>
         );

@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
-import BoxItem from '../components/BoxItem/BoxItem';
+import BoxContainer from '../components/BoxContainer';
+
 
 class App extends Component {
 
 	render() {
 		return (
 			<div>
-				<BoxItem />
+				<BoxContainer />
 			</div>
 	);
 	}
