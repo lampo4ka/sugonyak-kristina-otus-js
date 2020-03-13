@@ -1,8 +1,8 @@
 .boxItem {
-    width: 80px;
-    height: 80px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
     border: 1px solid black;
-    background: #000;
 }
 
 .header {}
@@ -19,10 +19,12 @@
 }
 
 .img {
-    width: 100px;
-    height: 100px;
+    width: 370px;
+    height: 300px;
 }
 
-.components {}
+.components {
+
+}
 
 .steps {}

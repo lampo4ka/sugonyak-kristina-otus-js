@@ -49,12 +49,13 @@ class BoxItem extends Component {
      */
 
     render() {
-        //console.log(box.boxItem);
         return (
             <div className={Box.boxItem}>
-                <Header />
-                <Body />
-                <div>hello</div>
+                <Body
+                    components = {this.props.data.components}
+                    steps = {this.props.data.steps}
+                    img = {this.props.data.img}
+                />
             </div>
         );
     }
