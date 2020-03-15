@@ -19,12 +19,24 @@
 }
 
 .img {
-    width: 370px;
+    width: 400px;
     height: 300px;
 }
 
+
 .components {
+    padding-left: 15px;
+    font-family: Arial;
+    color: #808080;
 
 }
+h2 {
+    color: #696969;
+}
 
-.steps {}
+.steps {
+    padding-left: 20px;
+    padding-right: 15px;
+    font-family: Arial;
+    color: #808080;
+}

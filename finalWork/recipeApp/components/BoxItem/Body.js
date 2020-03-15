@@ -9,7 +9,7 @@ class Body extends Component {
         return (
             <div className={Box.body}>
                 <div>
-                    <img src='https://v.img.com.ua/nxs70/b/600x500/e/6a/17d8a161fd8aec45a59a171e04c616ae.jpg'
+                    <img src={this.props.data.img}
                          alt='Milfey'
                          className={Box.img}
                     />

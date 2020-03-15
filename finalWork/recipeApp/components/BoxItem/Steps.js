@@ -10,7 +10,7 @@ class Steps extends Component {
     render() {
         return (
             <div className={Box.steps}>
-                <h2>Способ приготовления</h2>
+                <h2>Способ приготовления:</h2>
                 <p
                     dangerouslySetInnerHTML={this.rawMarkup(this.props.data.steps)}
                 />
