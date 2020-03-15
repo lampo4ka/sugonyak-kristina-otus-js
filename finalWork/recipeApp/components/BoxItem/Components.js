@@ -7,7 +7,6 @@ class Components extends Component {
         var rawMarkup = marked(text);
         return {__html: rawMarkup };
     }
-
     render() {
         return (
                 <div className={Box.components}>

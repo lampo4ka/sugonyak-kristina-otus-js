@@ -4,8 +4,8 @@ import Components from "./Components";
 import Steps from "./Steps";
 
 class Body extends Component {
+
     render() {
-        console.log(this.props);
         return (
             <div className={Box.body}>
                 <div>
@@ -14,7 +14,7 @@ class Body extends Component {
                          className={Box.img}
                     />
                 </div>
-                <Steps />
+                <Steps data = {this.props.data}/>
                 <Components data = {this.props.data} />
 
             </div>
