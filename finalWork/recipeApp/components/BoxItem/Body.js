@@ -13,7 +13,11 @@ class Body extends Component {
                          alt='Milfey'
                          className={Box.img}
                     />
+                    <div className={Box.title}>
+                        <h1>Мильфей</h1>
+                    </div>
                 </div>
+
                 <Steps data = {this.props.data}/>
                 <Components data = {this.props.data} />
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Box from './BoxItem/BoxItem.css'
 import BoxItem from "./BoxItem/BoxItem";
+import BoxItemShort from './BoxItemShort'
 
 class BoxContainer extends Component {
 
@@ -10,8 +11,8 @@ class BoxContainer extends Component {
             {
                 key: 0,
                 title: 'Мильфей',
-                components: 'сахар\n\nсахар\n\nсахар\n\n сахар\n\n сахар\n\n сахар',
-                steps: 'Chop the herbs and garlic with 1 tsp sea salt until very fine. Add the mustard and capers , and combine.\n\nTransfer the mixture to a bowl and stir in the olive oil. Add the vinegar, little by little, stirring and tasting as you go – trust your palate!',
+                components: '320-375г готового слоеного теста\n\n3 столовые ложки сахарной пудры, плюс дополнительно для посыпки\n\nсемена из 2-х стручков ванили\n\n600 мл жирных сливок\n\nцедра 1 апельсина\n\n1/2 ст. л. апельсинового ликера, например Grand Marnier\n\n200 г свежей малины',
+                steps: 'Раскатайте тесто и положите на противень с антипригарным покрытием. Посыпьте сахарной пудрой и выпекайте в предварительно разогретой духовке в течение 8 минут, затем уменьшите температуру до 200°С и готовьте еще 7-12 минут, пока тесто не станет золотистым и глазированным. Выньте и оставьте остывать на решетке.\n\nТем временем, смешайте семена ванили в сливки. Добавьте 3 столовые ложки сахарной пудры и взбейте смесь до образования мягких пиков. (Не переусердствуйте, иначе расслоится.) Добавьте апельсиновую цедру, ликер и перемешайте лопаточкой.\n\nПереложите сливки в кондитерский мешок с  простой насадкой. Охладите.\n\nКогда тесто остынет, нарежьте его очень аккуратно на 3 равные части хлебным ножом.\n\nСоберите мильфей непосредственно перед подачей на стол. Достаньте из холодильника кондитерский мешок, добавьте каплю сливок на сервировочную тарелку, чтобы она служила "клеем", и положите сверху кусок теста. Нанесите слой крема на тесто и добавьте "бордюр" из малины по внешним краям. Нанесите еще один слой крема внутри малинового бордюра, затем сверху положите еще один слой теста и повторите этапы приготовления. Закончить верхним слоем теста. Подавать сразу, посыпав сахарной пудрой.',
                 img: 'https://v.img.com.ua/nxs70/b/600x500/e/6a/17d8a161fd8aec45a59a171e04c616ae.jpg'
             };
         this.state = {
@@ -22,8 +23,11 @@ class BoxContainer extends Component {
 
     render() {
         return (
-            <div className={Box.boxItem}>
-                <BoxItem
+            <div>
+                {/*<BoxItem*/}
+                {/*    data = {this.state.data}*/}
+                {/*/>*/}
+                <BoxItemShort
                     data = {this.state.data}
                 />
             </div>

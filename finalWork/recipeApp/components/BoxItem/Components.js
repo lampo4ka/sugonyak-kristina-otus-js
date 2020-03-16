@@ -10,7 +10,7 @@ class Components extends Component {
     render() {
         return (
                 <div className={Box.components}>
-                    <h2>Ингредиенты:</h2>
+                    <h3>Ингредиенты:</h3>
                     <p
                         dangerouslySetInnerHTML={this.rawMarkup(this.props.data.components)}
                     />

@@ -1,5 +1,12 @@
 .boxItem {
-    max-width: 800px;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.boxItemSort {
+    max-width: 200px;
     width: 100%;
     margin: 0 auto;
     border: 1px solid black;
@@ -7,35 +14,47 @@
 
 .header {}
 
-.title {}
+.title {
+    border-bottom: 1px solid grey;
+}
 
 .body {
     display: grid;
     grid-template-areas:
-    'img' 'steps'
-    'components' 'steps';
+    'img steps'
+    'components steps';
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
 }
 
 .img {
+    grid-area: img;
     width: 400px;
     height: 300px;
 }
 
 
 .components {
+    grid-area: components;
     padding-left: 15px;
     font-family: Arial;
     color: #808080;
 
 }
-h2 {
+
+h1 {
+    color: #696969;
+    padding-left: 15px;
+    font-family: Arial;
+}
+
+h3 {
     color: #696969;
 }
 
 .steps {
-    padding-left: 20px;
+    grid-area: steps;
+    padding-left: 25px;
     padding-right: 15px;
     font-family: Arial;
     color: #808080;
