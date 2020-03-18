@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Box from './BoxItem/BoxItem.css'
 import BoxItem from "./BoxItem/BoxItem";
-import BoxItemShort from './BoxItemShort'
+import BoxItemShort from './BoxItemShort';
+import Body from './BoxItem/Body';
+import {Route,  BrowserRouter, Link} from "react-router-dom";
 
 class BoxContainer extends Component {
 
@@ -23,14 +25,26 @@ class BoxContainer extends Component {
 
     render() {
         return (
-            <div>
-                {/*<BoxItem*/}
-                {/*    data = {this.state.data}*/}
-                {/*/>*/}
-                <BoxItemShort
-                    data = {this.state.data}
-                />
-            </div>
+            <BrowserRouter>
+                <div>
+                    {/*<BoxItem*/}
+                    {/*    data = {this.state.data}*/}
+                    {/*/>*/}
+                    <Link to='/fullBox'>
+                        <BoxItemShort
+                            data = {this.state.data}
+                        />
+                    </Link>
+                    <div>
+                        <Route
+                            path='/fullBox'
+                            render = { (props) => <BoxItem {...props} data={this.state.data}/>}
+                        />
+
+                    </div>
+                </div>
+            </BrowserRouter>
+
         );
     }
 }
