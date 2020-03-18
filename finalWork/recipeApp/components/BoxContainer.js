@@ -3,7 +3,7 @@ import Box from './BoxItem/BoxItem.css'
 import BoxItem from "./BoxItem/BoxItem";
 import BoxItemShort from './BoxItemShort';
 import Body from './BoxItem/Body';
-import {Route,  BrowserRouter, Link} from "react-router-dom";
+import {Route,  BrowserRouter, Link, Switch} from "react-router-dom";
 
 class BoxContainer extends Component {
 
@@ -22,26 +22,52 @@ class BoxContainer extends Component {
         };
     }
 
+    getIndex(key) {
+        var i = this.state.data.findIndex((element) => {
+            if (element.key === key) {
+                return true
+            }
+        });
+        return i;
+    }
+
+    updateRecipe(key, title, components, steps, img) {
+        const data = this.state.data;
+        var i = this.getIndex(key);
+
+        this.state.data[i].title = title;
+        this.state.data[i].components = components;
+        this.state.data[i].steps = steps;
+        this.state.data[i].img = img;
+        this.saveToLocal();
+    }
+
 
     render() {
         return (
             <BrowserRouter>
                 <div>
-                    {/*<BoxItem*/}
-                    {/*    data = {this.state.data}*/}
-                    {/*/>*/}
-                    <Link to='/fullBox'>
-                        <BoxItemShort
-                            data = {this.state.data}
-                        />
-                    </Link>
-                    <div>
-                        <Route
-                            path='/fullBox'
-                            render = { (props) => <BoxItem {...props} data={this.state.data}/>}
-                        />
+                    <BoxItem
+                        data = {this.state.data}
+                        update={this.updateRecipe.bind(this)}
+                    />
 
-                    </div>
+                    {/*<Link to='/fullBoxContent/Milfey'>*/}
+                    {/*    <BoxItemShort*/}
+                    {/*        data = {this.state.data}*/}
+                    {/*    />*/}
+                    {/*</Link>*/}
+                    {/*<div>*/}
+                    {/*    <Route*/}
+                    {/*        path='/fullBoxContent/Milfey'*/}
+                    {/*        render = {*/}
+                    {/*            (props) => <BoxItem {...props}*/}
+                    {/*                                data={this.state.data}*/}
+                    {/*                                update={this.updateRecipe.bind(this)}*/}
+                    {/*            />}*/}
+                    {/*    />*/}
+
+                    {/*</div>*/}
                 </div>
             </BrowserRouter>
 

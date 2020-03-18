@@ -29,21 +29,21 @@ class BoxItem extends Component {
     //         this.props.close();
     //     }
     // }
-    // updateRecipe({
-    //                  key = this.props.data.key,
-    //                  title = this.props.data.title,
-    //                  ingredients = this.props.data.ingredients,
-    //                  instructions = this.props.data.instructions,
-    //                  img = this.props.data.img
-    //              }) {
-    //
-    //     this.props.update(key, title, ingredients, instructions, img);
-    // }
-    //
-    // toggleEdit() {
-    //     console.log("thi")
-    //     this.setState({editable: this.state.editable ? false : true});
-    // }
+    updateRecipe({
+                     key = this.props.data.key,
+                     title = this.props.data.title,
+                     components = this.props.data.components,
+                     steps = this.props.data.steps,
+                     img = this.props.data.img
+                 }) {
+
+        this.props.update(key, title, components, steps, img);
+    }
+
+    toggleEdit() {
+        console.log("Edit");
+        this.setState({editable: true});
+    }
     /* Returns box content. Uses if statements to decide if just the title should be shown
      * passes editable state to children. If this is true, children become editable
      */
@@ -53,6 +53,8 @@ class BoxItem extends Component {
             <div className={Box.boxItem}>
                 <Body
                     data = {this.props.data}
+                    update= {this.updateRecipe.bind(this)}
+                    toggleEdit = {this.toggleEdit.bind(this)}
                 />
             </div>
         );
