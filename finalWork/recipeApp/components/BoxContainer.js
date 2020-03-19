@@ -19,6 +19,7 @@ class BoxContainer extends Component {
             };
         this.state = {
             data,
+            showBox:false
         };
     }
 
@@ -42,6 +43,18 @@ class BoxContainer extends Component {
         this.saveToLocal();
     }
 
+    closeBox() {
+        this.setState({showBox:false})
+    }
+
+    showBox(key) {
+        const index = this.getIndex(key);
+        this.setState({
+            showBox: true,
+            currIndex: index
+        });
+    }
+
 
     render() {
         console.log(this.state)
@@ -51,6 +64,7 @@ class BoxContainer extends Component {
                     <BoxItem
                         data = {this.state.data}
                         update={this.updateRecipe.bind(this)}
+                        close={this.closeBox.bind(this)}
                     />
 
                     {/*<Link to='/fullBoxContent/Milfey'>*/}

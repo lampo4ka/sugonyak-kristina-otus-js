@@ -15,10 +15,13 @@ class Steps extends Component {
         return {__html: rawMarkup };
     }
     render() {
+        const editable = this.props.editable;
         return (
             <div className={Box.steps}>
                 <h2>Способ приготовления:</h2>
                 <p
+                    contentEditable={editable}
+                    onBlur={this.handleChangeSteps.bind(this)}
                     dangerouslySetInnerHTML={this.rawMarkup(this.props.data.steps)}
                 />
             </div>

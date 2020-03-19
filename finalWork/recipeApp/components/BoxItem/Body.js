@@ -9,8 +9,13 @@ class Body extends Component {
         this.props.update({img: e.target.value});
     }
 
+    handleChange(e) {
+        // Change title to html of editable elements
+        this.props.update({title: e.target.innerText});
+        console.log(this.props.title)
+    }
+
     render() {
-        console.log(this.props)
         return (
             <div className={Box.body}>
                 <div>
@@ -20,7 +25,12 @@ class Body extends Component {
                     />
                     <div>
                         <div className={Box.title}>
-                            <h1>Мильфей</h1>
+                            <h1
+                                contentEditable={this.props.editable}
+                                onBlur={this.handleChange.bind(this)}
+                            >
+                                {this.props.data.title}
+                            </h1>
                         </div>
                         <div className={Box.button}>
                             <button onClick={this.props.toggleEdit}>Edit</button>
@@ -28,7 +38,11 @@ class Body extends Component {
                     </div>
                 </div>
 
-                <Steps data = {this.props.data}/>
+                <Steps
+                    update= {this.updateRecipe}
+                    data = {this.props.data}
+                    editable = {this.props.editable}
+                />
                 <Components
                     update= {this.updateRecipe}
                     data = {this.props.data}
