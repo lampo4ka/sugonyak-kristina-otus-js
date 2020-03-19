@@ -15,7 +15,7 @@ class Components extends Component {
         return {__html: rawMarkup };
     }
     render() {
-        const editable = this.editFlag;
+        const editable = this.props.editable;
         return (
                 <div className={Box.components}>
                     <h3>Ингредиенты:</h3>

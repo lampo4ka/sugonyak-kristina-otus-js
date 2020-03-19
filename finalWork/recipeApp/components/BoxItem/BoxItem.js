@@ -49,12 +49,14 @@ class BoxItem extends Component {
      */
 
     render() {
+        console.log(this.state)
         return (
             <div className={Box.boxItem}>
                 <Body
                     data = {this.props.data}
                     update= {this.updateRecipe.bind(this)}
                     toggleEdit = {this.toggleEdit.bind(this)}
+                    editable = {this.state.editable}
                 />
             </div>
         );

@@ -10,6 +10,7 @@ class Body extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className={Box.body}>
                 <div>
@@ -31,7 +32,7 @@ class Body extends Component {
                 <Components
                     update= {this.updateRecipe}
                     data = {this.props.data}
-                    editFlag = {this.props.toggleEdit}
+                    editable = {this.props.editable}
 
                 />
 

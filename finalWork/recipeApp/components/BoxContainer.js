@@ -44,6 +44,7 @@ class BoxContainer extends Component {
 
 
     render() {
+        console.log(this.state)
         return (
             <BrowserRouter>
                 <div>
