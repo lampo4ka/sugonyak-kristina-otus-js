@@ -14,16 +14,22 @@ class Steps extends Component {
         var rawMarkup = marked(text);
         return {__html: rawMarkup };
     }
+
     render() {
         const editable = this.props.editable;
         return (
             <div className={Box.steps}>
-                <h2>Способ приготовления:</h2>
-                <p
-                    contentEditable={editable}
-                    onBlur={this.handleChangeSteps.bind(this)}
-                    dangerouslySetInnerHTML={this.rawMarkup(this.props.data.steps)}
-                />
+                <div className={Box.closeButton}>
+                    <button onClick={this.props.close}>X</button>
+                </div>
+                <div>
+                    <h2>Способ приготовления:</h2>
+                    <p
+                        contentEditable={editable}
+                        onBlur={this.handleChangeSteps.bind(this)}
+                        dangerouslySetInnerHTML={this.rawMarkup(this.props.data.steps)}
+                    />
+                </div>
             </div>
         );
     }

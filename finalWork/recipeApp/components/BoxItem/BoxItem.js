@@ -44,12 +44,13 @@ class BoxItem extends Component {
         console.log("Edit");
         this.setState({editable: true});
     }
-    /* Returns box content. Uses if statements to decide if just the title should be shown
-     * passes editable state to children. If this is true, children become editable
-     */
+
 
     render() {
-        console.log(this.state)
+        console.log(this.props)
+        if(!this.props.show){
+            return null;
+        }
         return (
             <div className={Box.boxItem}>
                 <Body
@@ -57,6 +58,8 @@ class BoxItem extends Component {
                     update= {this.updateRecipe.bind(this)}
                     toggleEdit = {this.toggleEdit.bind(this)}
                     editable = {this.state.editable}
+                    show={this.props.showBox}
+                    close={this.props.close}
                 />
             </div>
         );

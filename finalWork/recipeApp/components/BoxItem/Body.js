@@ -16,6 +16,7 @@ class Body extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className={Box.body}>
                 <div>
@@ -42,6 +43,9 @@ class Body extends Component {
                     update= {this.updateRecipe}
                     data = {this.props.data}
                     editable = {this.props.editable}
+                    show={this.props.showBox}
+                    //onClose={this.showBox}
+                    close={this.props.close}
                 />
                 <Components
                     update= {this.updateRecipe}

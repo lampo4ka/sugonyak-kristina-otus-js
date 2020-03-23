@@ -19,7 +19,7 @@ class BoxContainer extends Component {
             };
         this.state = {
             data,
-            showBox:false
+            showBox:true
         };
     }
 
@@ -47,13 +47,13 @@ class BoxContainer extends Component {
         this.setState({showBox:false})
     }
 
-    showBox(key) {
-        const index = this.getIndex(key);
+    showBox = (e, key) => {
+        //const index = this.getIndex(key);
         this.setState({
-            showBox: true,
-            currIndex: index
+            showBox: !this.state.showBox
+            //currIndex: index
         });
-    }
+    };
 
 
     render() {
@@ -65,6 +65,7 @@ class BoxContainer extends Component {
                         data = {this.state.data}
                         update={this.updateRecipe.bind(this)}
                         close={this.closeBox.bind(this)}
+                        show={this.state.showBox}
                     />
 
                     {/*<Link to='/fullBoxContent/Milfey'>*/}
