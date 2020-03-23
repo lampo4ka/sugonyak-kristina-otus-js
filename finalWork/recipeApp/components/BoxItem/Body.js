@@ -17,13 +17,21 @@ class Body extends Component {
 
     render() {
         console.log(this.props)
+        const editable = this.props.editable;
+        const editImg =  <input
+            type="text"
+            onChange={this.handleChangeImg.bind(this)}
+            value={this.props.data.img}
+        />
         return (
             <div className={Box.body}>
                 <div>
                     <img src={this.props.data.img}
                          alt='Milfey'
                          className={Box.img}
+                         contentEditable={this.props.editable}
                     />
+                    {editable&&editImg}
                     <div>
                         <div className={Box.title}>
                             <h1
@@ -44,7 +52,6 @@ class Body extends Component {
                     data = {this.props.data}
                     editable = {this.props.editable}
                     show={this.props.showBox}
-                    //onClose={this.showBox}
                     close={this.props.close}
                 />
                 <Components
