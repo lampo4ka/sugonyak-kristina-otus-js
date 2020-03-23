@@ -43,6 +43,12 @@ class BoxContainer extends Component {
         this.saveToLocal();
     }
 
+    deleteRecipe(key){
+        // var i = this.getIndex(key);
+        // this.state.data.splice(i, 1);
+        this.closeBox();
+    }
+
     closeBox() {
         this.setState({showBox:false})
     }
@@ -66,6 +72,7 @@ class BoxContainer extends Component {
                         update={this.updateRecipe.bind(this)}
                         close={this.closeBox.bind(this)}
                         show={this.state.showBox}
+                        delete = {this.deleteRecipe.bind(this)}
                     />
 
                     {/*<Link to='/fullBoxContent/Milfey'>*/}

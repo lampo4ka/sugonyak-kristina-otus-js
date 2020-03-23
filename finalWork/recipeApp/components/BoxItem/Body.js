@@ -44,6 +44,9 @@ class Body extends Component {
                         <div className={Box.button}>
                             <button onClick={this.props.toggleEdit}>Edit</button>
                         </div>
+                        <div className={Box.button}>
+                            <button onClick={this.props.delete}>Delete</button>
+                        </div>
                     </div>
                 </div>
 

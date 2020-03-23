@@ -13,10 +13,10 @@ class BoxItem extends Component {
         }
     }
 
-    // deleteRecipe() {
-    //     console.log(this.props)
-    //     this.props.delete(this.props.data.key)
-    // }
+    deleteRecipe() {
+        console.log(this.props)
+        this.props.delete(this.props.data.key)
+    }
     //
     // /* closes form when overlay is clicked
     //  */
@@ -60,6 +60,7 @@ class BoxItem extends Component {
                     editable = {this.state.editable}
                     show={this.props.showBox}
                     close={this.props.close}
+                    delete = {this.deleteRecipe.bind(this)}
                 />
             </div>
         );
