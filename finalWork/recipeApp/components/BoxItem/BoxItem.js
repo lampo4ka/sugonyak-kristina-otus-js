@@ -48,9 +48,9 @@ class BoxItem extends Component {
 
     render() {
         console.log(this.props)
-        if(!this.props.show){
-            return null;
-        }
+        // if(!this.props.show){
+        //     return null;
+        // }
         return (
             <div className={Box.boxItem}>
                 <Body

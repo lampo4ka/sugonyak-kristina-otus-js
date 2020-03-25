@@ -1,3 +1,11 @@
+.container {
+    display: grid;
+    grid-template-areas:
+    'boxItemSort boxItemSort boxItemSort';
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+
 .boxItem {
     max-width: 900px;
     width: 100%;
@@ -6,6 +14,7 @@
 }
 
 .boxItemSort {
+    grid-area: boxItemSort;
     max-width: 200px;
     width: 100%;
     margin: 0 auto;

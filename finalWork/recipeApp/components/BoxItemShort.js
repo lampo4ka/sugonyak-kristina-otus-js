@@ -21,7 +21,7 @@ class BoxItemShort extends Component {
                     />
                 </div>
                 <div className={BoxShort.title}>
-                    <h1>Мильфей</h1>
+                    <h1>{this.props.data.title}</h1>
                 </div>
             </div>
         );
