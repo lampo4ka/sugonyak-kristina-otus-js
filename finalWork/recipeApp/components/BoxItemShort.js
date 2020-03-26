@@ -11,9 +11,13 @@ class BoxItemShort extends Component {
         }
     }
 
+    handleClick() {
+        this.props.show(this.props.data.key);
+    }
+
     render() {
         return (
-            <div className={BoxShort.boxItemSort}>
+            <div className={BoxShort.boxItemShort} onClick={this.handleClick.bind(this)}>
                 <div>
                     <img src={this.props.data.img}
                          alt='Milfey'

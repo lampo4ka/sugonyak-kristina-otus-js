@@ -34,7 +34,8 @@ class BoxContainer extends Component {
         ];
         this.state = {
             data,
-            showBox:false
+            showBox:false,
+            index:0
         };
     }
 
@@ -44,6 +45,7 @@ class BoxContainer extends Component {
                 return true
             }
         });
+        console.log(i)
         return i;
     }
 
@@ -68,35 +70,41 @@ class BoxContainer extends Component {
         this.setState({showBox:false})
     }
 
-    showBox = (e, key) => {
-        //const index = this.getIndex(key);
+    showBox = (key) => {
+        const currentIndex = this.getIndex(key);
         this.setState({
-            showBox: !this.state.showBox
-            //currIndex: index
+            index: currentIndex,
+            showBox: !this.state.showBox,
         });
     };
 
-
     render() {
-        console.log(this.state)
-
+        var boxItemShort = this.state.data.map((dataItem) => {
+           return (<BoxItemShort
+               data = {dataItem}
+               key = {dataItem.key}
+               show = {this.showBox.bind(this)}
+           />)
+        });
         if(this.state.showBox){
             var boxItem =
-                <div className={Box.container}>
+
                     <BoxItem
-                        data = {this.state.data[2]}
+                        data = {this.state.data[this.state.index]}
                         update={this.updateRecipe.bind(this)}
                         close={this.closeBox.bind(this)}
                         show={this.state.showBox}
                         delete = {this.deleteRecipe.bind(this)}
                     />;
-                </div>
+
         }
         return (
             <BrowserRouter>
                 <div>
                     {boxItem}
-                    {/*<BoxItemShort data = {this.state.data[0]} />*/}
+                    <div className={Box.container}>
+                        {boxItemShort}
+                    </div>
                     {/*<BoxItemShort data = {this.state.data[1]} />*/}
                     {/*<BoxItemShort data = {this.state.data[2]} />*/}
 
