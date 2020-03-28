@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Box from '../../style/BoxItem/BoxItem.module.css'
 class Header extends Component {
 
     // handleChange(e) {

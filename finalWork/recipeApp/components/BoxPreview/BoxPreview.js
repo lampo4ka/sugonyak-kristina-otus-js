@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import BoxShort from './BoxItemShort.css'
+import BoxPreviewStyle from './BoxPreviewStyle.css'
 
-class BoxItemShort extends Component {
+class BoxPreview extends Component {
 
     constructor() {
         super();
@@ -17,14 +17,14 @@ class BoxItemShort extends Component {
 
     render() {
         return (
-            <div className={BoxShort.boxItemShort} onClick={this.handleClick.bind(this)}>
+            <div className={BoxPreviewStyle.boxItemShort} onClick={this.handleClick.bind(this)}>
                 <div>
                     <img src={this.props.data.img}
                          alt='Milfey'
-                         className={BoxShort.img}
+                         className={BoxPreviewStyle.img}
                     />
                 </div>
-                <div className={BoxShort.title}>
+                <div className={BoxPreviewStyle.title}>
                     <h1>{this.props.data.title}</h1>
                 </div>
             </div>
@@ -32,4 +32,4 @@ class BoxItemShort extends Component {
     }
 }
 
-export default BoxItemShort;
+export default BoxPreview;

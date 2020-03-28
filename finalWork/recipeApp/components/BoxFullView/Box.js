@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import Box from './BoxItem.css'
-import Header from "./Header";
+import BoxStyle from './BoxStyle.css'
 import Body from "./Body";
 
-class BoxItem extends Component {
+class Box extends Component {
 
     constructor() {
         super();
@@ -17,18 +16,7 @@ class BoxItem extends Component {
         console.log(this.props)
         this.props.delete(this.props.data.key)
     }
-    //
-    // /* closes form when overlay is clicked
-    //  */
-    // handleClick(e) {
-    //     const formBg = document.querySelector(".box");
-    //     const isClickInside = formBg.contains(e.target);
-    //
-    //     if (!isClickInside) {
-    //         //the click was outside the specifiedElement, do something
-    //         this.props.close();
-    //     }
-    // }
+
     updateRecipe({
                      key = this.props.data.key,
                      title = this.props.data.title,
@@ -48,11 +36,8 @@ class BoxItem extends Component {
 
     render() {
         console.log(this.props)
-        // if(!this.props.show){
-        //     return null;
-        // }
         return (
-            <div className={Box.boxItem}>
+            <div className={BoxStyle.boxItem}>
                 <Body
                     data = {this.props.data}
                     update= {this.updateRecipe.bind(this)}
@@ -67,4 +52,4 @@ class BoxItem extends Component {
     }
 }
 
-export default BoxItem;
+export default Box;

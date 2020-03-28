@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import Box from './BoxItem.css'
+import BoxStyle from './BoxStyle.css'
 import marked from "marked";
 class Steps extends Component {
 
     handleChangeSteps(e) {
-        // Change steps to html of editable elements
         const re = /(?:\r\n|\r|\n)/g;
         const str = (toMarkdown(e.target.innerHTML));
         this.props.update({steps: str});
@@ -18,8 +17,8 @@ class Steps extends Component {
     render() {
         const editable = this.props.editable;
         return (
-            <div className={Box.steps}>
-                <div className={Box.closeButton}>
+            <div className={BoxStyle.steps}>
+                <div className={BoxStyle.closeButton}>
                     <button onClick={this.props.close}>X</button>
                 </div>
                 <div>

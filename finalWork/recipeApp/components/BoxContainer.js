@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import Box from './BoxItem/BoxItem.css'
-import BoxItem from "./BoxItem/BoxItem";
-import BoxItemShort from './BoxItemShort';
-import Body from './BoxItem/Body';
-import {Route,  BrowserRouter, Link, Switch} from "react-router-dom";
+import BoxStyle from './BoxFullView/BoxStyle.css'
+import Box from "./BoxFullView/Box";
+import BoxPreview from './BoxPreview/BoxPreview';
+
 
 class BoxContainer extends Component {
 
@@ -80,7 +79,7 @@ class BoxContainer extends Component {
 
     render() {
         var boxItemShort = this.state.data.map((dataItem) => {
-           return (<BoxItemShort
+           return (<BoxPreview
                data = {dataItem}
                key = {dataItem.key}
                show = {this.showBox.bind(this)}
@@ -89,7 +88,7 @@ class BoxContainer extends Component {
         if(this.state.showBox){
             var boxItem =
 
-                    <BoxItem
+                    <Box
                         data = {this.state.data[this.state.index]}
                         update={this.updateRecipe.bind(this)}
                         close={this.closeBox.bind(this)}
@@ -99,33 +98,12 @@ class BoxContainer extends Component {
 
         }
         return (
-            <BrowserRouter>
                 <div>
                     {boxItem}
-                    <div className={Box.container}>
+                    <div className={BoxStyle.container}>
                         {boxItemShort}
                     </div>
-                    {/*<BoxItemShort data = {this.state.data[1]} />*/}
-                    {/*<BoxItemShort data = {this.state.data[2]} />*/}
-
-                    {/*<Link to='/fullBoxContent/Milfey'>*/}
-                    {/*    <BoxItemShort*/}
-                    {/*        data = {this.state.data}*/}
-                    {/*    />*/}
-                    {/*</Link>*/}
-                    {/*<div>*/}
-                    {/*    <Route*/}
-                    {/*        path='/fullBoxContent/Milfey'*/}
-                    {/*        render = {*/}
-                    {/*            (props) => <BoxItem {...props}*/}
-                    {/*                                data={this.state.data}*/}
-                    {/*                                update={this.updateRecipe.bind(this)}*/}
-                    {/*            />}*/}
-                    {/*    />*/}
-
-                    {/*</div>*/}
                 </div>
-            </BrowserRouter>
 
         );
     }

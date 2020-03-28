@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Box from './BoxItem.css'
+import BoxStyle from './BoxStyle.css'
 import Components from "./Components";
 import Steps from "./Steps";
 
@@ -10,7 +10,6 @@ class Body extends Component {
     }
 
     handleChange(e) {
-        // Change title to html of editable elements
         this.props.update({title: e.target.innerText});
         console.log(this.props.title)
     }
@@ -24,16 +23,16 @@ class Body extends Component {
             value={this.props.data.img}
         />
         return (
-            <div className={Box.body}>
+            <div className={BoxStyle.body}>
                 <div>
                     <img src={this.props.data.img}
                          alt='Milfey'
-                         className={Box.img}
+                         className={BoxStyle.img}
                          contentEditable={this.props.editable}
                     />
                     {editable&&editImg}
                     <div>
-                        <div className={Box.title}>
+                        <div className={BoxStyle.title}>
                             <h1
                                 contentEditable={this.props.editable}
                                 onBlur={this.handleChange.bind(this)}
@@ -41,10 +40,10 @@ class Body extends Component {
                                 {this.props.data.title}
                             </h1>
                         </div>
-                        <div className={Box.button}>
+                        <div className={BoxStyle.button}>
                             <button onClick={this.props.toggleEdit}>Edit</button>
                         </div>
-                        <div className={Box.button}>
+                        <div className={BoxStyle.button}>
                             <button onClick={this.props.delete}>Delete</button>
                         </div>
                     </div>

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import Box from './BoxItem.css'
+import BoxStyle from './BoxStyle.css'
 import marked from 'marked';
 class Components extends Component {
 
     handleChangeComponents(e) {
-        // Change ingredients to html of editable elements
         const re = /(?:\r\n|\r|\n)/g;
         const str = e.target.innerText.replace(re, '\n\n');
         this.props.update({components: str});
@@ -17,7 +16,7 @@ class Components extends Component {
     render() {
         const editable = this.props.editable;
         return (
-                <div className={Box.components}>
+                <div className={BoxStyle.components}>
                     <h3>Ингредиенты:</h3>
                     <p
                         contentEditable={editable}
