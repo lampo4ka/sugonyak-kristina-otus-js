@@ -24,13 +24,15 @@ class Body extends Component {
         />
         return (
             <div className={BoxStyle.body}>
-                <div>
-                    <img src={this.props.data.img}
-                         alt='Milfey'
-                         className={BoxStyle.img}
-                         contentEditable={this.props.editable}
-                    />
-                    {editable&&editImg}
+                <div className={BoxStyle.headerColumn}>
+                    <div className={BoxStyle.imgCont}>
+                        <img src={this.props.data.img}
+                             alt='Milfey'
+                             className={BoxStyle.img}
+                             contentEditable={this.props.editable}
+                        />
+                        {editable&&editImg}
+                    </div>
                     <div>
                         <div className={BoxStyle.title}>
                             <h1
@@ -40,11 +42,11 @@ class Body extends Component {
                                 {this.props.data.title}
                             </h1>
                         </div>
-                        <div className={BoxStyle.button}>
-                            <button onClick={this.props.toggleEdit}>Edit</button>
+                        <div className={BoxStyle.editButton}>
+                            <button onClick={this.props.toggleEdit}>Изменить</button>
                         </div>
-                        <div className={BoxStyle.button}>
-                            <button onClick={this.props.delete}>Delete</button>
+                        <div className={BoxStyle.deleteButton}>
+                            <button onClick={this.props.delete}>Удалить</button>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import BoxStyle from './BoxFullView/BoxStyle.css'
 import Box from "./BoxFullView/Box";
 import BoxPreview from './BoxPreview/BoxPreview';
+import BoxPreviewStyle from './BoxPreview/BoxPreviewStyle.css';
 
 
 class BoxContainer extends Component {
@@ -21,7 +22,7 @@ class BoxContainer extends Component {
                 title: 'Чизкейк',
                 components: '320-375г готового слоеного теста\n\n3 столовые ложки сахарной пудры, плюс дополнительно для посыпки\n\nсемена из 2-х стручков ванили\n\n600 мл жирных сливок\n\nцедра 1 апельсина\n\n1/2 ст. л. апельсинового ликера, например Grand Marnier\n\n200 г свежей малины',
                 steps: 'Раскатайте тесто и положите на противень с антипригарным покрытием. Посыпьте сахарной пудрой и выпекайте в предварительно разогретой духовке в течение 8 минут, затем уменьшите температуру до 200°С и готовьте еще 7-12 минут, пока тесто не станет золотистым и глазированным. Выньте и оставьте остывать на решетке.\n\nТем временем, смешайте семена ванили в сливки. Добавьте 3 столовые ложки сахарной пудры и взбейте смесь до образования мягких пиков. (Не переусердствуйте, иначе расслоится.) Добавьте апельсиновую цедру, ликер и перемешайте лопаточкой.\n\nПереложите сливки в кондитерский мешок с  простой насадкой. Охладите.\n\nКогда тесто остынет, нарежьте его очень аккуратно на 3 равные части хлебным ножом.\n\nСоберите мильфей непосредственно перед подачей на стол. Достаньте из холодильника кондитерский мешок, добавьте каплю сливок на сервировочную тарелку, чтобы она служила "клеем", и положите сверху кусок теста. Нанесите слой крема на тесто и добавьте "бордюр" из малины по внешним краям. Нанесите еще один слой крема внутри малинового бордюра, затем сверху положите еще один слой теста и повторите этапы приготовления. Закончить верхним слоем теста. Подавать сразу, посыпав сахарной пудрой.',
-                img: 'https://www.photorecept.ru/wp-content/uploads/2018/05/cheesecake-e1583408138242-1300x981.jpg'
+                img: 'https://i.pinimg.com/564x/81/53/c7/8153c73e229444d86da2d4c305aa2193.jpg'
             },
             {
                 key: 2,
@@ -78,7 +79,7 @@ class BoxContainer extends Component {
     };
 
     render() {
-        var boxItemShort = this.state.data.map((dataItem) => {
+        var boxPreview = this.state.data.map((dataItem) => {
            return (<BoxPreview
                data = {dataItem}
                key = {dataItem.key}
@@ -86,7 +87,7 @@ class BoxContainer extends Component {
            />)
         });
         if(this.state.showBox){
-            var boxItem =
+            var boxFullView =
 
                     <Box
                         data = {this.state.data[this.state.index]}
@@ -98,10 +99,10 @@ class BoxContainer extends Component {
 
         }
         return (
-                <div>
-                    {boxItem}
-                    <div className={BoxStyle.container}>
-                        {boxItemShort}
+                <div className={BoxPreviewStyle.container}>
+                    {boxFullView}
+                    <div className={BoxPreviewStyle.boxContainer}>
+                        {boxPreview}
                     </div>
                 </div>
 

@@ -17,7 +17,7 @@ class BoxPreview extends Component {
 
     render() {
         return (
-            <div className={BoxPreviewStyle.boxItemShort} onClick={this.handleClick.bind(this)}>
+            <div className={BoxPreviewStyle.boxPreview} onClick={this.handleClick.bind(this)}>
                 <div>
                     <img src={this.props.data.img}
                          alt='Milfey'

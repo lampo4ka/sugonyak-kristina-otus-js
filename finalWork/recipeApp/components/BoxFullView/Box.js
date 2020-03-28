@@ -37,7 +37,7 @@ class Box extends Component {
     render() {
         console.log(this.props)
         return (
-            <div className={BoxStyle.boxItem}>
+            <div className={BoxStyle.box}>
                 <Body
                     data = {this.props.data}
                     update= {this.updateRecipe.bind(this)}

@@ -1,7 +1,21 @@
-.boxItemShort {
+.container{
+}
+
+.boxContainer {
+    display: grid;
+    grid-template-areas:
+    'boxPreview boxPreview boxPreview';
+    grid-template-rows: 1fr 1fr 1fr;
+
+
+}
+
+.boxPreview {
     width: 400px;
-    margin: 0 auto;
-    border: 1px solid black;
+    margin: 50px auto;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 10px 5px 5px #F5F5F5;
 }
 
 .img {

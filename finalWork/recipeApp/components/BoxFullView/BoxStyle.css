@@ -1,27 +1,17 @@
-.container {
-    display: grid;
-    grid-template-areas:
-    'boxItemSort boxItemSort boxItemSort';
-    grid-template-rows: 1fr 1fr 1fr;
-
-}
-
-.boxItem {
+.box {
     max-width: 900px;
     width: 100%;
     margin: 0 auto;
-    border: 1px solid black;
+    border-radius: 25px;
+    box-shadow: 15px 10px 10px #F5F5F5;
+    border: 1px solid #F5F5F5;
 }
 
-.boxItemSort {
-    grid-area: boxItemSort;
-    max-width: 200px;
-    width: 100%;
-    margin: 0 auto;
-    border: 1px solid black;
+.headerColumn {
+    grid-area: headerColumn;
+    padding: 20px;
 }
-
-.header {}
+.imgCont{}
 
 .title {
     border-bottom: 1px solid grey;
@@ -30,18 +20,50 @@
 .body {
     display: grid;
     grid-template-areas:
-    'img steps'
+    'headerColumn steps'
     'components steps';
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
 }
 
 .img {
-    grid-area: img;
-    width: 400px;
+    width: 410px;
     height: 300px;
 }
+.editButton button {
+    max-width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Arial;
+    color: white;
+    border: 0;
+    background: #808080;
+}
 
+.deleteButton button {
+    max-width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Arial;
+    color: white;
+    border: 0;
+    background: #808080;
+}
+
+.editButton button:hover {
+    background: #9c9c9c;
+}
+
+.deleteButton button {
+    background: #2b2b2b;
+}
+.deleteButton button:hover {
+    background: #454545;
+}
 
 .components {
     grid-area: components;
