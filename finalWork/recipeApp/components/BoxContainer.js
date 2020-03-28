@@ -3,6 +3,7 @@ import BoxStyle from './BoxFullView/BoxStyle.css'
 import Box from "./BoxFullView/Box";
 import BoxPreview from './BoxPreview/BoxPreview';
 import BoxPreviewStyle from './BoxPreview/BoxPreviewStyle.css';
+import Header from "./BoxFullView/Header";
 
 
 class BoxContainer extends Component {
@@ -50,8 +51,24 @@ class BoxContainer extends Component {
                 return true
             }
         });
-        console.log(i)
         return i;
+    }
+
+    addRecipe(title, components, steps, img) {
+        //const data = this.state.data,
+        const newKey = this.state.data.length + 1;
+
+        //this.setState({counter: newCounter});
+
+        const newRecipe = {
+            key: newKey,
+            title: title,
+            components: components,
+            steps: steps,
+            img: img,
+        }
+        this.state.data.push(newRecipe);
+        this.forceUpdate();
     }
 
     updateRecipe(key, title, components, steps, img) {
@@ -110,6 +127,9 @@ class BoxContainer extends Component {
                 <div className={BoxPreviewStyle.container}>
                     {boxFullView}
                     <div className={BoxPreviewStyle.boxContainer}>
+                        <div className={BoxPreviewStyle.header}>
+                            <Header/>
+                        </div>
                         {boxPreview}
                     </div>
                 </div>

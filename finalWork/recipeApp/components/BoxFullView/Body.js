@@ -25,9 +25,7 @@ class Body extends Component {
                 <div className={BoxStyle.headerColumn}>
                     <div className={BoxStyle.imgCont}>
                         <img src={this.props.data.img}
-                             alt='Milfey'
                              className={BoxStyle.img}
-                             contentEditable={this.props.editable}
                         />
                         {editable&&editImg}
                     </div>

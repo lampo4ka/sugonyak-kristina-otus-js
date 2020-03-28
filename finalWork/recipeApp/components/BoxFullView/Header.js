@@ -1,19 +1,23 @@
 import React, { Component } from "react";
+import BoxPreviewStyle from "../BoxPreview/BoxPreviewStyle.css";
+import BoxStyle from "./BoxStyle.css";
 class Header extends Component {
 
-    // handleChange(e) {
-    //     // Change title to html of editable elements
-    //     this.props.update({title: e.target.innerText});
-    //     console.log(this.props.title)
-    // }
 
     render() {
         return (
-            <header className={Box.header}>
-                <h2 className={Box.title}>
-                    Мильфей
-                </h2>
-            </header>
+            <div className={BoxPreviewStyle.headerContainer}>
+                <div className={BoxPreviewStyle.headerTitle}>
+                    <h1>
+                        Рецепты
+                    </h1>
+                </div>
+                <div className={BoxPreviewStyle.addButton}>
+                    <button onClick={this.props.toggleEdit}>Добавить</button>
+                </div>
+            </div>
+
+
         );
     }
 

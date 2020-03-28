@@ -4,15 +4,22 @@
 .boxContainer {
     display: grid;
     grid-template-areas:
+    'header header header'
     'boxPreview boxPreview boxPreview';
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 25% auto;
 
-
+}
+.header {
+    grid-area: header;
+    width: 1390px;
+    margin: 40px auto 0;
+    border-radius: 20px;
+    box-shadow: 10px 5px 5px #F5F5F5;
 }
 
 .boxPreview {
     width: 400px;
-    margin: 50px auto;
+    margin: 25px auto;
     border-radius: 20px;
     padding: 20px;
     box-shadow: 10px 5px 5px #F5F5F5;
@@ -23,7 +30,45 @@
     height: 300px;
 }
 
+.headerTitle{
+    padding-left: 50px;
+    margin: 30px auto 0;
+    display: inline-block;
+}
+
 h1 {
     color: #696969;
     font-family: Arial;
+}
+
+h2 {
+    color: #696969;
+    font-family: Arial;
+}
+
+.headerContainer {
+    white-space:nowrap;
+}
+
+.addButton {
+    display:inline-block;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+.addButton button {
+    max-width: 100%;
+    height: 50px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Arial;
+    color: white;
+    border: 0;
+    background: #808080;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.addButton button:hover {
+    background: #9c9c9c;
 }
