@@ -33,7 +33,7 @@ class Body extends Component {
                         />
                         {editable&&editImg}
                     </div>
-                    <div>
+                    <div className={BoxStyle.headerContent}>
                         <div className={BoxStyle.title}>
                             <h1
                                 contentEditable={this.props.editable}
@@ -42,11 +42,13 @@ class Body extends Component {
                                 {this.props.data.title}
                             </h1>
                         </div>
-                        <div className={BoxStyle.editButton}>
-                            <button onClick={this.props.toggleEdit}>Изменить</button>
-                        </div>
-                        <div className={BoxStyle.deleteButton}>
-                            <button onClick={this.props.delete}>Удалить</button>
+                        <div className={BoxStyle.button}>
+                            <div className={BoxStyle.editButton}>
+                                <button onClick={this.props.toggleEdit}>Изменить</button>
+                            </div>
+                            <div className={BoxStyle.deleteButton}>
+                                <button onClick={this.props.delete}>Удалить</button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -11,10 +11,16 @@
     grid-area: headerColumn;
     padding: 20px;
 }
+.headerContent {
+    border-bottom: 1px solid grey;
+    white-space:nowrap;
+}
 .imgCont{}
 
 .title {
-    border-bottom: 1px solid grey;
+    display:inline-block;
+    max-width: 100%;
+    margin-right: 20px;
 }
 
 .body {
@@ -26,9 +32,18 @@
     grid-template-columns: 1fr 1fr;
 }
 
+.button {
+    display:inline-block;
+    max-width: 100%;
+    margin-left: 85px;
+}
+
 .img {
     width: 410px;
     height: 300px;
+}
+.editButton, .deleteButton {
+    display:inline-block;
 }
 .editButton button {
     max-width: 100%;
@@ -40,6 +55,8 @@
     color: white;
     border: 0;
     background: #808080;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .deleteButton button {
@@ -52,6 +69,7 @@
     color: white;
     border: 0;
     background: #808080;
+    cursor: pointer;
 }
 
 .editButton button:hover {
@@ -73,9 +91,8 @@
 
 }
 
-h1 {
+.title h1 {
     color: #696969;
-    padding-left: 15px;
     font-family: Arial;
 }
 
@@ -95,10 +112,23 @@ h3 {
     float: right;
     padding-right: 10px;
     padding-top: 10px;
+    margin-top: 5px;
 }
 
 .closeButton button {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
+    max-width: 100%;
+    font-size: 16px;
+    font-family: Arial;
+    border-radius: 5px;
+    padding: 8px;
+    background: #808080;
+    color: white;
+    border: 0;
+}
+
+.closeButton button:hover {
+    background: #9c9c9c;
 }
