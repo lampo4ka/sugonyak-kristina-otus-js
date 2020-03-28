@@ -11,11 +11,9 @@ class Body extends Component {
 
     handleChange(e) {
         this.props.update({title: e.target.innerText});
-        console.log(this.props.title)
     }
 
     render() {
-        console.log(this.props)
         const editable = this.props.editable;
         const editImg =  <input
             type="text"
@@ -54,14 +52,14 @@ class Body extends Component {
                 </div>
 
                 <Steps
-                    update= {this.updateRecipe}
+                    update= {this.props.update}
                     data = {this.props.data}
                     editable = {this.props.editable}
                     show={this.props.showBox}
                     close={this.props.close}
                 />
                 <Components
-                    update= {this.updateRecipe}
+                    update= {this.props.update}
                     data = {this.props.data}
                     editable = {this.props.editable}
 
