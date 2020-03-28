@@ -61,8 +61,8 @@ class BoxContainer extends Component {
     }
 
     deleteRecipe(key){
-        // var i = this.getIndex(key);
-        // this.state.data.splice(i, 1);
+        var i = this.getIndex(key);
+        this.state.data.splice(i, 1);
         this.closeBox();
     }
 
@@ -88,7 +88,6 @@ class BoxContainer extends Component {
         });
         if(this.state.showBox){
             var boxFullView =
-
                     <Box
                         data = {this.state.data[this.state.index]}
                         update={this.updateRecipe.bind(this)}

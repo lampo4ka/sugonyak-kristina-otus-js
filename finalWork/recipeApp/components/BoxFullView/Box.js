@@ -13,7 +13,6 @@ class Box extends Component {
     }
 
     deleteRecipe() {
-        console.log(this.props)
         this.props.delete(this.props.data.key)
     }
 
