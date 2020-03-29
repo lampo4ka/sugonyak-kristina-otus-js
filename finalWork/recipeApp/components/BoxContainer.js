@@ -128,7 +128,7 @@ class BoxContainer extends Component {
                     {boxFullView}
                     <div className={BoxPreviewStyle.boxContainer}>
                         <div className={BoxPreviewStyle.header}>
-                            <Header/>
+                            <Header add={this.addRecipe.bind(this)}/>
                         </div>
                         {boxPreview}
                     </div>
