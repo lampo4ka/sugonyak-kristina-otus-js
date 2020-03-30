@@ -5,21 +5,19 @@ class Components extends Component {
 
     handleChangeComponents(e) {
         const re = /(?:\r\n|\r|\n)/g;
-        const str = e.target.innerText.replace(re, '\n\n');
-        this.props.update({components: str});
+        const string = e.target.innerText.replace(re, '\n\n');
+        this.props.update({components: string});
     }
 
     rawMarkup(text) {
-        var rawMarkup = marked(text);
-        return {__html: rawMarkup };
+        return {__html: marked(text) };
     }
     render() {
-        const editable = this.props.editable;
         return (
                 <div className={BoxStyle.components}>
                     <h3>Ингредиенты:</h3>
                     <p
-                        contentEditable={editable}
+                        contentEditable={this.props.editable}
                         onBlur={this.handleChangeComponents.bind(this)}
                         dangerouslySetInnerHTML={this.rawMarkup(this.props.data.components)}
                     />

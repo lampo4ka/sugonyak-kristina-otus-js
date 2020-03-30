@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import BoxStyle from './BoxFullView/BoxStyle.css'
 import Box from "./BoxFullView/Box";
 import BoxPreview from './BoxPreview/BoxPreview';
 import BoxPreviewStyle from './BoxPreview/BoxPreviewStyle.css';
@@ -45,52 +44,45 @@ class BoxContainer extends Component {
         };
     }
 
-    getIndex(key) {
-        var i = this.state.data.findIndex((element) => {
+    getIndex = (key) => {
+        return this.state.data.findIndex((element) => {
             if (element.key === key) {
                 return true
             }
         });
-        return i;
-    }
+    };
 
-    addRecipe(title, components, steps, img) {
-        //const data = this.state.data,
+    addRecipe = (title, components, steps, img) => {
         const newKey = this.state.data.length + 1;
-
-        //this.setState({counter: newCounter});
-
         const newRecipe = {
             key: newKey,
             title: title,
             components: components,
             steps: steps,
             img: img,
-        }
+        };
         this.state.data.push(newRecipe);
         this.forceUpdate();
-    }
+    };
 
-    updateRecipe(key, title, components, steps, img) {
-        const data = this.state.data;
-        var i = this.getIndex(key);
-
+    updateRecipe = (key, title, components, steps, img) => {
+        const i = this.getIndex(key);
         this.state.data[i].title = title;
         this.state.data[i].components = components;
         this.state.data[i].steps = steps;
         this.state.data[i].img = img;
         this.saveToStorage();
-    }
+    };
 
-    deleteRecipe(key){
-        var i = this.getIndex(key);
+    deleteRecipe = (key) => {
+        const i = this.getIndex(key);
         this.state.data.splice(i, 1);
         this.closeBox();
-    }
+    };
 
-    closeBox() {
+    closeBox = () => {
         this.setState({showBox:false})
-    }
+    };
 
     showBox = (key) => {
         const currentIndex = this.getIndex(key);
@@ -100,12 +92,12 @@ class BoxContainer extends Component {
         });
     };
 
-    saveToStorage() {
+    saveToStorage = () => {
         localStorage.setItem('stores', JSON.stringify(this.state.data));
-    }
+    };
 
     render() {
-        var boxPreview = this.state.data.map((dataItem) => {
+        const boxPreview = this.state.data.map((dataItem) => {
            return (<BoxPreview
                data = {dataItem}
                key = {dataItem.key}

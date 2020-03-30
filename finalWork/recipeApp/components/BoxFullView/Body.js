@@ -5,20 +5,18 @@ import Steps from "./Steps";
 
 class Body extends Component {
 
-    handleChangeImg(e) {
+    handleChangeImg = (e) => {
         this.props.update({img: e.target.value});
-    }
+    };
 
-    handleChange(e) {
+    handleChange = (e) => {
         this.props.update({title: e.target.innerText});
-    }
+    };
 
     render() {
-        const editable = this.props.editable;
         const editImg =  <input
             type="text"
             onChange={this.handleChangeImg.bind(this)}
-            value={this.props.data.img}
         />
         return (
             <div className={BoxStyle.body}>
@@ -27,7 +25,7 @@ class Body extends Component {
                         <img src={this.props.data.img}
                              className={BoxStyle.img}
                         />
-                        {editable&&editImg}
+                        {this.props.editable&&editImg}
                     </div>
                     <div className={BoxStyle.headerContent}>
                         <div className={BoxStyle.title}>

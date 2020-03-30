@@ -4,18 +4,15 @@ import marked from "marked";
 class Steps extends Component {
 
     handleChangeSteps(e) {
-        const re = /(?:\r\n|\r|\n)/g;
-        const str = (toMarkdown(e.target.innerHTML));
-        this.props.update({steps: str});
+        const string = (toMarkdown(e.target.innerHTML));
+        this.props.update({steps: string});
     }
 
     rawMarkup(text) {
-        var rawMarkup = marked(text);
-        return {__html: rawMarkup };
+        return {__html: marked(text) };
     }
 
     render() {
-        const editable = this.props.editable;
         return (
             <div className={BoxStyle.steps}>
                 <div className={BoxStyle.closeButton}>
@@ -24,7 +21,7 @@ class Steps extends Component {
                 <div>
                     <h2>Способ приготовления:</h2>
                     <p
-                        contentEditable={editable}
+                        contentEditable={this.props.editable}
                         onBlur={this.handleChangeSteps.bind(this)}
                         dangerouslySetInnerHTML={this.rawMarkup(this.props.data.steps)}
                     />
