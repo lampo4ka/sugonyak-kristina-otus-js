@@ -53,7 +53,6 @@ class BoxContainer extends Component {
     };
 
     addRecipe = (title, components, steps, img) => {
-        debugger
         const newKey = this.state.data.length + 1;
         const newRecipe = {
             key: newKey,
