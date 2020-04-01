@@ -29,7 +29,6 @@ class AddRecipe extends Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         if ( !this.state.title || !this.state.components || !this.state.steps ) {
             this.error();
