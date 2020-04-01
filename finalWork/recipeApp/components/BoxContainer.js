@@ -53,6 +53,7 @@ class BoxContainer extends Component {
     };
 
     addRecipe = (title, components, steps, img) => {
+        debugger
         const newKey = this.state.data.length + 1;
         const newRecipe = {
             key: newKey,
@@ -97,6 +98,7 @@ class BoxContainer extends Component {
     };
 
     render() {
+        // список рецептов при отрытии страницы
         const boxPreview = this.state.data.map((dataItem) => {
            return (<BoxPreview
                data = {dataItem}
@@ -105,6 +107,7 @@ class BoxContainer extends Component {
            />)
         });
         if(this.state.showBox){
+            // полный вид карточки страницы
             var boxFullView =
                     <Box
                         data = {this.state.data[this.state.index]}

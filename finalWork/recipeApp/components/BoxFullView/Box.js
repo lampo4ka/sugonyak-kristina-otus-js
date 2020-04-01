@@ -27,6 +27,7 @@ class Box extends Component {
         this.props.update(key, title, components, steps, img);
     };
 
+    // изменение стейста возможности редактировать (editable)
     toggleEdit = () => {
         this.setState({editable: true});
     };

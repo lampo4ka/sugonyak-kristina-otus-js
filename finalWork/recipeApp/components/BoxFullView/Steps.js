@@ -3,6 +3,7 @@ import BoxStyle from './BoxStyle.css'
 import marked from "marked";
 class Steps extends Component {
 
+    // редактировать раздел способ приготовления
     handleChangeSteps(e) {
         const string = (toMarkdown(e.target.innerHTML));
         this.props.update({steps: string});

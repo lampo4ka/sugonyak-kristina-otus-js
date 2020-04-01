@@ -5,10 +5,12 @@ import Steps from "./Steps";
 
 class Body extends Component {
 
+    // изменить урл картинки
     handleChangeImg = (e) => {
         this.props.update({img: e.target.value});
     };
 
+    // изменить название рецепта
     handleChange = (e) => {
         this.props.update({title: e.target.innerText});
     };

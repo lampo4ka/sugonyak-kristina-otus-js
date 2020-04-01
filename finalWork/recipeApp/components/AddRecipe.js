@@ -8,34 +8,39 @@ class AddRecipe extends Component {
             error: false
         }
     }
+
+    // сохранение нового навзания рецепта
     handleTitleChange(e) {
         this.setState({title: e.target.value})
     }
-
+    // сохранение нового фото
     handleImageChange(e) {
         this.setState({img: e.target.value})
     }
 
-    handleIngredientsChange(e) {
-        this.setState({ingredients: e.target.value})
+    // сохранение новых ингредиентов
+    handleComponentsChange(e) {
+        this.setState({components: e.target.value})
     }
 
-    handleInstructionsChange(e) {
-        this.setState({instructions: e.target.value})
+    // сохранение новых шагов приготовления
+    handleStepsChange(e) {
+        this.setState({steps: e.target.value})
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
-        if ( !this.state.title || !this.state.ingredients || !this.state.instructions ) {
+        if ( !this.state.title || !this.state.components || !this.state.steps ) {
             this.error();
             return;
         }
         this.props.add(
             this.state.title,
-            this.state.ingredients,
-            this.state.instructions,
+            this.state.components,
+            this.state.steps,
             this.state.img
-        )
+        );
         this.props.toggleHidden();
     }
 
@@ -43,29 +48,16 @@ class AddRecipe extends Component {
         this.setState({error: true});
     }
 
-    /* closes form when overlay is clicked
-     */
-    // handleClick(e) {
-    //     const formBg = document.querySelector('.formContainer');
-    //     const isClickInside = formBg.contains(e.target);
-    //
-    //     if (!isClickInside) {
-    //         //the click was outside the specifiedElement, do something
-    //         this.props.toggleHidden();
-    //     }
-    // }
-
     render() {
         var error;
         if ( this.state.error ) {
             error = 	<span className={BoxPreviewStyle}>
-							You must complete all fields marked as required
+							Вы заполнили не все обязательные поля
 						</span>
         }
         return (
             <div
                 className={BoxPreviewStyle.formOverlay}
-                //onClick={this.handleClick.bind(this)}
             >
                 <div className={BoxPreviewStyle.formContainer}>
                     <form
@@ -80,11 +72,11 @@ class AddRecipe extends Component {
                         />
                         <label>Ингредиенты *</label>
                         <textarea
-                            onChange={this.handleIngredientsChange.bind(this)}
+                            onChange={this.handleComponentsChange.bind(this)}
                         />
                         <label>Способ приготовления *</label>
                         <textarea
-                            onChange={this.handleInstructionsChange.bind(this)}
+                            onChange={this.handleStepsChange.bind(this)}
                         />
                         <label>URL фотографии</label>
                         <input

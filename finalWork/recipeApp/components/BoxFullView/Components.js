@@ -3,6 +3,7 @@ import BoxStyle from './BoxStyle.css'
 import marked from 'marked';
 class Components extends Component {
 
+    // изменить набор ингредиентов
     handleChangeComponents(e) {
         const re = /(?:\r\n|\r|\n)/g;
         const string = e.target.innerText.replace(re, '\n\n');

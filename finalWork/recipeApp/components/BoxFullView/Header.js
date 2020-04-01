@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import BoxPreviewStyle from "../BoxPreview/BoxPreviewStyle.css";
-import BoxStyle from "./BoxStyle.css";
 import AddRecipe from '../AddRecipe'
 class Header extends Component {
 
