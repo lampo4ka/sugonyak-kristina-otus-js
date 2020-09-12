@@ -5,6 +5,7 @@ getPath.js
 promiseReduce.js
 sum.js
 .DS_Store
+/Home-Work15/node_modules
 /Home-Work19/graphql-server/node_modules/
 /Home-Work19/graphql-server/build/
 /homeWork11/weatherAppRedux/node_modules/
