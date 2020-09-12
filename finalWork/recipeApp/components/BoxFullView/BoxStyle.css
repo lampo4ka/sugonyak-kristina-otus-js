@@ -1,0 +1,142 @@
+.boxOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background:	white;
+}
+
+.box {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 25px;
+    box-shadow: 15px 10px 10px #F5F5F5;
+    border: 1px solid #F5F5F5;
+}
+
+.headerColumn {
+    grid-area: headerColumn;
+    padding: 20px;
+}
+.headerContent {
+    border-bottom: 1px solid grey;
+    white-space:nowrap;
+}
+.imgCont{}
+
+.title {
+    display:inline-block;
+    max-width: 100%;
+    margin-right: 20px;
+}
+
+.body {
+    display: grid;
+    grid-template-areas:
+    'headerColumn steps'
+    'components steps';
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.button {
+    display:inline-block;
+    max-width: 100%;
+    margin-left: 85px;
+}
+
+.img {
+    width: 410px;
+    height: 300px;
+}
+.editButton, .deleteButton {
+    display:inline-block;
+}
+.editButton button {
+    max-width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Arial;
+    color: white;
+    border: 0;
+    background: #808080;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.deleteButton button {
+    max-width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Arial;
+    color: white;
+    border: 0;
+    background: #808080;
+    cursor: pointer;
+}
+
+.editButton button:hover {
+    background: #9c9c9c;
+}
+
+.deleteButton button {
+    background: #2b2b2b;
+}
+.deleteButton button:hover {
+    background: #454545;
+}
+
+.components {
+    grid-area: components;
+    padding-left: 15px;
+    font-family: Arial;
+    color: #808080;
+
+}
+
+.title h1 {
+    color: #696969;
+    font-family: Arial;
+}
+
+h3 {
+    color: #696969;
+}
+
+.steps {
+    grid-area: steps;
+    padding-left: 25px;
+    padding-right: 15px;
+    font-family: Arial;
+    color: #808080;
+}
+
+.closeButton {
+    float: right;
+    padding-right: 10px;
+    padding-top: 10px;
+    margin-top: 5px;
+}
+
+.closeButton button {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    max-width: 100%;
+    font-size: 16px;
+    font-family: Arial;
+    border-radius: 5px;
+    padding: 8px;
+    background: #808080;
+    color: white;
+    border: 0;
+}
+
+.closeButton button:hover {
+    background: #9c9c9c;
+}
